@@ -135,6 +135,7 @@ def sonarExclusions = [
         '**uk/gov/hmcts/reform/divorce/validationservice/domain/**/*',
         '**uk/gov/hmcts/reform/divorce/validationservice/exception/*',
         '**uk/gov/hmcts/reform/divorce/validationservice/**/config/**/*',
+        '**uk/gov/hmcts/reform/divorce/validationservice/**/rules/d8/**/*',
         '**uk/gov/hmcts/reform/divorce/validationservice/ValidationServiceApplication.java'
 ]
 
