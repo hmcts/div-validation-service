@@ -20,9 +20,9 @@ import java.util.stream.Stream;
 @Slf4j
 public class D8RuleBook extends CoRRuleBook<List<String>> {
 
-    private List<String> errors = new ArrayList<>();
+    private final List<String> errors = new ArrayList<>();
 
-    private final String coreCaseData = "coreCaseData";
+    private static final String CORE_CASE_DATA = "coreCaseData";
 
     @Override
     public void defineRules() {
@@ -42,18 +42,18 @@ public class D8RuleBook extends CoRRuleBook<List<String>> {
 
     private void d8LegalProcessErrored(NameValueReferableTypeConvertibleMap<CoreCaseData> nameValueReferable,
                                        Result<List> result) {
-        errors.add("D8 Legal Process Error " + nameValueReferable.getValue(coreCaseData).getD8legalProcess());
-       result.setValue(errors);
+        errors.add("D8 Legal Process Error " + nameValueReferable.getValue(CORE_CASE_DATA).getD8legalProcess());
+        result.setValue(errors);
     }
 
     private void d8MarriageDateErrored(NameValueReferableTypeConvertibleMap<CoreCaseData> nameValueReferable,
                                        Result<List> result) {
-        errors.add("D8MarriageDate not valid " + nameValueReferable.getValue(coreCaseData).getD8MarriageDate());
+        errors.add("D8MarriageDate not valid " + nameValueReferable.getValue(CORE_CASE_DATA).getD8MarriageDate());
         result.setValue(errors);
     }
 
     private CoreCaseData getCoreCaseData(NameValueReferableTypeConvertibleMap<CoreCaseData> facts) {
-        return facts.getValue(coreCaseData);
+        return facts.getValue(CORE_CASE_DATA);
     }
 
     private boolean isNotValidMarriageDate(String coreCaseData) {

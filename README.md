@@ -1,5 +1,9 @@
 # Divorce Validation Service
 
+[![Build Status](https://travis-ci.org/hmcts/spring-boot-template.svg?branch=master)](https://travis-ci.org/hmcts/spring-boot-template)
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/5afacddc65a84464b4f84bd0b72f118b)](https://www.codacy.com/app/HMCTS/div-validation-service)
+
+## Purpose
 This application validates the case data based on the validation rules supplied.
 
 ## Getting started

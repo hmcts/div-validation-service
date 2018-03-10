@@ -35,7 +35,7 @@ public class ValidationServiceImpl implements ValidationService {
 
         d8RuleBook.setDefaultResult(null);
         d8RuleBook.run(facts);
-        d8RuleBook.getResult().map(Result::getValue).ifPresent(result-> errorResponse(validationResponse, result));
+        d8RuleBook.getResult().map(Result::getValue).ifPresent(result -> errorResponse(validationResponse, result));
         return validationResponse;
     }
 
