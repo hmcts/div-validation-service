@@ -13,6 +13,7 @@ import uk.gov.hmcts.reform.divorce.validationservice.domain.request.ValidationRe
 import uk.gov.hmcts.reform.divorce.validationservice.domain.response.ValidationResponse;
 import uk.gov.hmcts.reform.divorce.validationservice.service.ValidationService;
 
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
@@ -33,7 +34,6 @@ public class ValidationServiceImpl implements ValidationService {
                 .validationStatus("success")
                 .build();
 
-        d8RuleBook.setDefaultResult(null);
         d8RuleBook.run(facts);
         d8RuleBook.getResult().map(Result::getValue).ifPresent(result -> errorResponse(validationResponse, result));
         return validationResponse;

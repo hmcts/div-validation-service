@@ -1,5 +1,6 @@
 package uk.gov.hmcts.reform.divorce.validationservice.rules.rulebooks;
 
+import com.deliveredtechnologies.rulebook.NameValueReferableMap;
 import com.deliveredtechnologies.rulebook.NameValueReferableTypeConvertibleMap;
 import com.deliveredtechnologies.rulebook.Result;
 import com.deliveredtechnologies.rulebook.lang.RuleBuilder;
@@ -20,14 +21,14 @@ import java.util.stream.Stream;
 @Slf4j
 public class D8RuleBook extends CoRRuleBook<List<String>> {
 
-    private final List<String> errors = new ArrayList<>();
+    private List<String> errors = new ArrayList<>();
 
     private static final String CORE_CASE_DATA = "coreCaseData";
 
     @Override
     public void defineRules() {
 
-        setDefaultResult(null);
+       setDefaultResult(null);
 
         addRule(RuleBuilder.create().withFactType(CoreCaseData.class).withResultType(List.class)
                 .when(facts -> isNotValidD8Process(getCoreCaseData(facts).getD8legalProcess()))
@@ -38,6 +39,12 @@ public class D8RuleBook extends CoRRuleBook<List<String>> {
                 .when(facts -> isNotValidMarriageDate(getCoreCaseData(facts).getD8MarriageDate()))
                 .then(this::d8MarriageDateErrored)
                 .build());
+    }
+
+    @Override
+    public void run(NameValueReferableMap facts) {
+        errors.clear();
+        super.run(facts);
     }
 
     private void d8LegalProcessErrored(NameValueReferableTypeConvertibleMap<CoreCaseData> nameValueReferable,
