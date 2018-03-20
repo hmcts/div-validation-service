@@ -80,7 +80,7 @@ pitest {
     threads = 4
     outputFormats = ['XML', 'HTML']
     timestampedReports = false
-    mutationThreshold = 80
+    mutationThreshold = 20
 }
 
 // https://jeremylong.github.io/DependencyCheck/dependency-check-gradle/configuration.html
