@@ -81,6 +81,7 @@ timestamps {
                 stage('Mutation Testing (Pitest)') {
                     onPR {
                         sh "./gradlew pitest"
+                        archiveArtifacts 'build/reports/pitest'
                     }
                 }
 
