@@ -76,11 +76,11 @@ tasks.withType(Checkstyle).each { checkstyleTask ->
 
 pitest {
     targetClasses = ['uk.gov.hmcts.reform.divorce.validationservice.*']
-    excludedClasses = ['uk.gov.hmcts.reform.divorce.validationservice.ValidationServiceApplication', 'uk.gov.hmcts.reform.divorce.validationservice.domain.*', 'uk.gov.hmcts.reform.divorce.validationservice.config.*', 'uk.gov.hmcts.reform.divorce.validationservice.management.config.*']
+    excludedClasses = ['uk.gov.hmcts.reform.divorce.validationservice.domain.*', 'uk.gov.hmcts.reform.divorce.validationservice.config.*', 'uk.gov.hmcts.reform.divorce.validationservice.management.config.*']
     threads = 4
     outputFormats = ['XML', 'HTML']
     timestampedReports = false
-    mutationThreshold = 20
+    mutationThreshold = 40
 }
 
 // https://jeremylong.github.io/DependencyCheck/dependency-check-gradle/configuration.html
