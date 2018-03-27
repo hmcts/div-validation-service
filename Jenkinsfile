@@ -78,6 +78,12 @@ timestamps {
                     }
                 }
 
+                stage('Mutation Testing (Pitest)') {
+                    onPR {
+                            sh "./gradlew pitest"
+                    }
+                }
+
                 stage('Sonar') {
                     onPR {
                         sh "./gradlew -Dsonar.analysis.mode=preview -Dsonar.host.url=$SONARQUBE_URL sonarqube"
