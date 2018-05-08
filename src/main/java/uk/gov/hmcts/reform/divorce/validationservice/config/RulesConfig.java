@@ -7,9 +7,6 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import uk.gov.hmcts.reform.divorce.validationservice.rules.rulebooks.D8RuleBook;
 
-/**
- * Created by mrganeshraja on 28/02/2018.
- */
 @Configuration
 public class RulesConfig {
 
