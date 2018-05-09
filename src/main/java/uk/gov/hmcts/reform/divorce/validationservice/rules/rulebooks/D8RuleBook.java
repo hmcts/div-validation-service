@@ -21,14 +21,13 @@ import java.util.stream.Stream;
 @Slf4j
 public class D8RuleBook extends CoRRuleBook<List<String>> {
 
-    private List<String> errors = new ArrayList<>();
-
     private static final String CORE_CASE_DATA = "coreCaseData";
+    private List<String> errors = new ArrayList<>();
 
     @Override
     public void defineRules() {
 
-       setDefaultResult(null);
+        setDefaultResult(null);
 
         addRule(RuleBuilder.create().withFactType(CoreCaseData.class).withResultType(List.class)
                 .when(facts -> isNotValidD8Process(getCoreCaseData(facts).getD8legalProcess()))
@@ -68,7 +67,7 @@ public class D8RuleBook extends CoRRuleBook<List<String>> {
                 .map(this::parseToInstant)
                 .map(instant -> instant.isAfter(Instant.now())
                        || instant.isBefore(ZonedDateTime.now().minusYears(100).toInstant()))
-                .orElse(true);
+                 .orElse(true);
     }
 
     private Instant parseToInstant(String date) {
