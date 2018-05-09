@@ -1,6 +1,8 @@
 package uk.gov.hmcts.reform.divorce.validationservice.rules.rulebooks;
 
+import com.deliveredtechnologies.rulebook.NameValueReferableMap;
 import com.deliveredtechnologies.rulebook.NameValueReferableTypeConvertibleMap;
+import com.deliveredtechnologies.rulebook.Result;
 import com.deliveredtechnologies.rulebook.lang.RuleBuilder;
 import com.deliveredtechnologies.rulebook.model.rulechain.cor.CoRRuleBook;
 import lombok.extern.slf4j.Slf4j;
@@ -10,36 +12,62 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.time.Instant;
 import java.time.ZonedDateTime;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Locale;
 import java.util.Optional;
 import java.util.stream.Stream;
 
 @Slf4j
-public class D8RuleBook extends CoRRuleBook<CoreCaseData> {
+public class D8RuleBook extends CoRRuleBook<List<String>> {
+
+    private static final String CORE_CASE_DATA = "coreCaseData";
+    private List<String> errors = new ArrayList<>();
 
     @Override
     public void defineRules() {
-        addRule(RuleBuilder.create().withFactType(CoreCaseData.class).withResultType(String.class)
+
+        setDefaultResult(null);
+
+        addRule(RuleBuilder.create().withFactType(CoreCaseData.class).withResultType(List.class)
                 .when(facts -> isNotValidD8Process(getCoreCaseData(facts).getD8legalProcess()))
-                .then((facts, result) -> result.setValue("D8 Legal Process Error"))
+                .then(this::d8LegalProcessErrored)
                 .build());
 
-        addRule(RuleBuilder.create().withFactType(CoreCaseData.class).withResultType(String.class)
+        addRule(RuleBuilder.create().withFactType(CoreCaseData.class).withResultType(List.class)
                 .when(facts -> isNotValidMarriageDate(getCoreCaseData(facts).getD8MarriageDate()))
-                .then((facts, result) -> result.setValue("D8MarriageDate not valid"))
+                .then(this::d8MarriageDateErrored)
                 .build());
     }
 
+    @Override
+    public void run(NameValueReferableMap facts) {
+        errors.clear();
+        super.run(facts);
+    }
+
+    private void d8LegalProcessErrored(NameValueReferableTypeConvertibleMap<CoreCaseData> nameValueReferable,
+                                       Result<List> result) {
+        errors.add("D8 Legal Process Error " + nameValueReferable.getValue(CORE_CASE_DATA).getD8legalProcess());
+        result.setValue(errors);
+    }
+
+    private void d8MarriageDateErrored(NameValueReferableTypeConvertibleMap<CoreCaseData> nameValueReferable,
+                                       Result<List> result) {
+        errors.add("D8MarriageDate not valid " + nameValueReferable.getValue(CORE_CASE_DATA).getD8MarriageDate());
+        result.setValue(errors);
+    }
+
     private CoreCaseData getCoreCaseData(NameValueReferableTypeConvertibleMap<CoreCaseData> facts) {
-        return facts.getValue("coreCaseData");
+        return facts.getValue(CORE_CASE_DATA);
     }
 
     private boolean isNotValidMarriageDate(String coreCaseData) {
         return Optional.ofNullable(coreCaseData)
                 .map(this::parseToInstant)
                 .map(instant -> instant.isAfter(Instant.now())
-                        || instant.isBefore(ZonedDateTime.now().minusYears(100).toInstant()))
-                .orElse(true);
+                       || instant.isBefore(ZonedDateTime.now().minusYears(100).toInstant()))
+                 .orElse(true);
     }
 
     private Instant parseToInstant(String date) {
@@ -53,6 +81,6 @@ public class D8RuleBook extends CoRRuleBook<CoreCaseData> {
     }
 
     private boolean isNotValidD8Process(String value) {
-        return !Stream.of("Divorce", "Judicial Separation", "Nullity").anyMatch(i -> i.equals(value));
+        return Stream.of("Divorce", "Judicial Separation", "Nullity").noneMatch(i -> i.equals(value));
     }
 }

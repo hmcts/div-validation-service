@@ -12,7 +12,6 @@ import uk.gov.hmcts.reform.divorce.validationservice.domain.response.ValidationR
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
-import static org.junit.Assert.assertTrue;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @SpringBootTest
@@ -27,6 +26,7 @@ public class ValidationServiceTest {
     public void setup() {
         assertNotNull(validationService);
         coreCaseData = new CoreCaseData();
+        coreCaseData.setD8legalProcess("Divorce");
         coreCaseData.setD8MarriageDate("2007-12-12");
     }
 
@@ -34,14 +34,30 @@ public class ValidationServiceTest {
     public void givenCoreCaseData_whenInvalidD8LegalProcess_thenFailValidation() {
         coreCaseData.setD8legalProcess("notValid");
         assertEquals("expect to pass", "failed", validate().getValidationStatus());
-        assertTrue(true);
     }
 
     @Test
     public void givenCoreCaseData_whenValidD8LegalProcess_thenValidationWillSucceed() {
         coreCaseData.setD8legalProcess("Divorce");
         assertEquals("expect to pass", "success", validate().getValidationStatus());
-        assertTrue(true);
+    }
+
+    @Test
+    public void givenCoreCaseData_whenValidD8MarriageDate_thenValidationWillSucceed() {
+        coreCaseData.setD8MarriageDate("2007-12-12");
+        assertEquals("expect to pass", "success", validate().getValidationStatus());
+    }
+
+    @Test
+    public void givenCoreCaseData_whenInValidD8MarriageDate_thenFailValidation() {
+        coreCaseData.setD8MarriageDate("1700-10-10");
+        assertEquals("expect to pass", "failed", validate().getValidationStatus());
+    }
+
+    @Test
+    public void givenCoreCaseData_whenD8MarriageDateInFuture_thenValidationWillFail() {
+        coreCaseData.setD8MarriageDate("1700-10-10");
+        assertEquals("expect to pass", "failed", validate().getValidationStatus());
     }
 
     public ValidationRequest toValiationRequest(CoreCaseData caseData) {

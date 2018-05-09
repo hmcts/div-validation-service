@@ -7,6 +7,9 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import uk.gov.hmcts.reform.divorce.validationservice.rules.rulebooks.D8RuleBook;
 
+import java.util.List;
+
+
 @Configuration
 public class RulesConfig {
 
@@ -19,8 +22,8 @@ public class RulesConfig {
 
     @Bean("javaD8RuleBook")
     public RuleBook d8JavaRuleBook() {
-        return RuleBookBuilder.create(D8RuleBook.class).withResultType(String.class)
-                .withDefaultResult("")
+        return RuleBookBuilder.create(D8RuleBook.class).withResultType(List.class)
+                .withDefaultResult(null)
                 .build();
     }
 }
