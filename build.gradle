@@ -193,34 +193,6 @@ dependencies {
         exclude(module: 'commons-logging')
     }
 }
-/*
-
-dependencies {
-    compile('org.springframework.boot:spring-boot-starter-actuator')
-    compile('org.springframework.boot:spring-boot-actuator-docs')
-    compile('org.springframework.boot:spring-boot-starter-web')
-    compile('com.deliveredtechnologies:rulebook-core:0.9.1')
-    compile group: 'com.fasterxml.jackson.core', name: 'jackson-databind', version: versions.jacksonCore
-    compile group: 'com.puppycrawl.tools', name: 'checkstyle', version: versions.puppyCrawl
-    compile group: 'com.fasterxml.jackson.core', name: 'jackson-annotations', version: versions.jacksonCore
-    compile group: 'io.springfox', name: 'springfox-swagger2', version: versions.springfoxSwagger
-    compile group: 'io.springfox', name: 'springfox-swagger-ui', version: versions.springfoxSwagger
-    compile group: 'org.apache.commons', name: 'commons-lang3', version: versions.commonsLang3
-    compile group: 'commons-io', name: 'commons-io', version: versions.commonsIo
-    compile group: 'uk.gov.hmcts.auth.provider.service', name: 'service-token-generator-spring', version: versions.serviceTokenGeneratorSpring
-    compile group: 'uk.gov.hmcts.reform', name: 'java-logging', version: versions.reformsJavaLogging
-    compile group: 'uk.gov.hmcts.reform', name: 'java-logging-spring', version: versions.reformsJavaLoggingSpring
-    compile group: 'uk.gov.hmcts.reform', name: 'java-logging-httpcomponents', version: versions.reformsJavaLoggingHttpComponents
-    compile group: 'io.springfox', name: 'springfox-swagger-ui', version: versions.springFoxSwagger
-    compile group: 'net.logstash.logback', name: 'logstash-logback-encoder', version: versions.logstashLogBackEncoder
-    compileOnly group: 'org.projectlombok', name: 'lombok', version: versions.lombok
-    testCompile group: 'org.powermock', name: 'powermock-module-junit4', version: versions.powerMock
-    testCompile group: 'org.powermock', name: 'powermock-api-mockito-common', version: versions.powerMock
-    testCompile group: 'org.powermock', name: 'powermock-api-mockito', version: versions.powerMock
-    testCompile('org.springframework.boot:spring-boot-starter-test')
-    testCompile('org.springframework.security:spring-security-test')
-    runtime('org.springframework.boot:spring-boot-devtools')
-}*/
 
 pmd {
     toolVersion = "5.8.1"
