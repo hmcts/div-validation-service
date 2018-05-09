@@ -9,9 +9,7 @@ import uk.gov.hmcts.reform.divorce.validationservice.rules.rulebooks.D8RuleBook;
 
 import java.util.List;
 
-/**
- * Created by mrganeshraja on 28/02/2018.
- */
+
 @Configuration
 public class RulesConfig {
 
