@@ -1,9 +1,9 @@
 variable "product" {
-  default = "Divorce"
+  default = "div"
 }
 
 variable "microservice" {
-  default = "validation-service"
+  default = "vs"
 }
 
 variable "location" {
