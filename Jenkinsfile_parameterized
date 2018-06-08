@@ -3,8 +3,8 @@
 
 properties([
         parameters([
-                string(name: 'PRODUCT_NAME', defaultValue: 'divorce', description: 'Divorce'),
-                string(name: 'APP', defaultValue: 'validation-service', description: 'Default Validation Service'),
+                string(name: 'PRODUCT_NAME', defaultValue: 'div', description: 'Divorce'),
+                string(name: 'APP', defaultValue: 'vs', description: 'Default Validation Service'),
                 string(name: 'TYPE', defaultValue: 'java', description: ''),
                 string(name: 'ENVIRONMENT', defaultValue: 'sandbox', description: 'Environment where code should be build and deployed'),
                 choice(name: 'SUBSCRIPTION', choices: 'sandbox\nnonprod\nprod', description: 'Azure subscriptions available to build in')

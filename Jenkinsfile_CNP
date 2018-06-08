@@ -1,16 +1,5 @@
 #!groovy
 
-properties([
-        [
-                $class: 'GithubProjectProperty',
-                displayName: 'Divorce Validation Service',
-                projectUrlStr: 'https://github.com/hmcts/div-validation-service'
-        ],
-        pipelineTriggers([
-                [$class: 'GitHubPushTrigger']
-        ])
-])
-
 @Library("Infrastructure")
 
 def type = "java"
