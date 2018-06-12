@@ -1,0 +1,28 @@
+{
+    "run": {
+        "default": "",
+        "items": [
+            {
+                "name": "div-validation-service",
+                "projectName": "div-validation-service",
+                "workingDirectory": "/home/tony/Code/Divorce/div-validation-service",
+                "args": [],
+                "vmargs": [],
+                "preLaunchTask": ""
+            }
+        ]
+    },
+    "debug": {
+        "default": "",
+        "items": [
+            {
+                "name": "div-validation-service",
+                "projectName": "div-validation-service",
+                "workingDirectory": "/home/tony/Code/Divorce/div-validation-service",
+                "args": [],
+                "vmargs": [],
+                "preLaunchTask": ""
+            }
+        ]
+    }
+}

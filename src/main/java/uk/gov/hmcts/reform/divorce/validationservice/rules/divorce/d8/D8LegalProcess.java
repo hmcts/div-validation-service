@@ -1,4 +1,4 @@
-package uk.gov.hmcts.reform.divorce.validationservice.rules.d8;
+package uk.gov.hmcts.reform.divorce.validationservice.rules.divorce.d8;
 
 import com.deliveredtechnologies.rulebook.annotation.Given;
 import com.deliveredtechnologies.rulebook.annotation.Result;
@@ -10,7 +10,7 @@ import uk.gov.hmcts.reform.divorce.validationservice.domain.request.CoreCaseData
 
 import java.util.Optional;
 
-@Rule(order = 1)
+@Rule
 @Data
 public class D8LegalProcess {
 

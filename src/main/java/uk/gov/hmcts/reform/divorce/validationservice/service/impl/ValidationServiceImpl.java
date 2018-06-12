@@ -13,7 +13,6 @@ import uk.gov.hmcts.reform.divorce.validationservice.domain.request.ValidationRe
 import uk.gov.hmcts.reform.divorce.validationservice.domain.response.ValidationResponse;
 import uk.gov.hmcts.reform.divorce.validationservice.service.ValidationService;
 
-import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
