@@ -49,8 +49,9 @@ public class JurisdictionConnectionTest {
     public void thenShouldReturnErrorMessageWithNull() {
         rule.setDivorceSession(divorceSession);
 
-        rule.then();
+		rule.setResult(new ArrayList<>());
+		rule.then();
 
-        assertEquals("jurisdictionConnection can not be null or empty. Actual data is: null", rule.getResult());
+        assertEquals("jurisdictionConnection can not be null or empty. Actual data is: null", rule.getResult().get(0));
     }
 }

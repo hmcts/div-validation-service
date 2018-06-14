@@ -6,6 +6,8 @@ import org.junit.runner.RunWith;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
+import java.util.ArrayList;
+
 import uk.gov.hmcts.reform.divorce.validationservice.domain.request.Address;
 import uk.gov.hmcts.reform.divorce.validationservice.domain.request.DivorceSession;
 
@@ -47,8 +49,9 @@ public class PetitionerHomeAddressTest {
     public void thenShouldReturnErrorMessageWithNull() {
         rule.setDivorceSession(divorceSession);
 
-        rule.then();
+		rule.setResult(new ArrayList<>());
+		rule.then();
 
-        assertEquals("petitionerHomeAddress can not be null or empty. Actual data is: null", rule.getResult());
+        assertEquals("petitionerHomeAddress can not be null or empty. Actual data is: null", rule.getResult().get(0));
     }
 }

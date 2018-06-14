@@ -1,15 +1,16 @@
 package uk.gov.hmcts.reform.divorce.validationservice.rules.divorce.session;
 
+import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
+import java.util.ArrayList;
+
 import uk.gov.hmcts.reform.divorce.validationservice.domain.request.DivorceSession;
 
 import static org.junit.Assert.assertEquals;
-
-import org.junit.Before;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @SpringBootTest
@@ -46,8 +47,9 @@ public class LegalProceedingsTest {
     public void thenShouldReturnErrorMessageWithNull() {
         rule.setDivorceSession(divorceSession);
 
-        rule.then();
+		rule.setResult(new ArrayList<>());
+		rule.then();
 
-        assertEquals("legalProceedings can not be null or empty. Actual data is: null", rule.getResult());
+        assertEquals("legalProceedings can not be null or empty. Actual data is: null", rule.getResult().get(0));
     }
 }

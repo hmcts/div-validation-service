@@ -25,7 +25,7 @@ public class ReasonForDivorce {
     private static final String ERROR_MESSAGE_INVALID = "reasonForDivorce is invalid for the current date of marriage.";
 
     @Result
-    public String result;
+    public List<String> result;
 
     @Given("divorceSession")
     public DivorceSession divorceSession = new DivorceSession();
@@ -39,13 +39,13 @@ public class ReasonForDivorce {
 
     @Then
     public void then() {
-        result = String.join(
+        result.add(String.join(
             BLANK_SPACE, // delimiter
             Optional.ofNullable(divorceSession.getReasonForDivorce()).isPresent() ?
                 ERROR_MESSAGE_INVALID :
                 ERROR_MESSAGE_NULL,
             String.format(ACTUAL_DATA, divorceSession.getReasonForDivorce())
-        );
+        ));
     }
 
     private List<String> getAllowedReasonsForDivorce(Date marriageDate) {

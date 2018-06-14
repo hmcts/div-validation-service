@@ -26,7 +26,7 @@ public class D8ReasonForDivorce {
     private static final String ERROR_MESSAGE_INVALID = "D8ReasonForDivorce is invalid for the current date of marriage.";
 
     @Result
-    public String result;
+    public List<String> result;
 
     @Given("coreCaseData")
     public CoreCaseData coreCaseData = new CoreCaseData();
@@ -40,13 +40,13 @@ public class D8ReasonForDivorce {
 
     @Then
     public void then() {
-        result = String.join(
+        result.add(String.join(
             BLANK_SPACE, // delimiter
             Optional.ofNullable(coreCaseData.getD8ReasonForDivorce()).isPresent() ?
                 ERROR_MESSAGE_INVALID :
                 ERROR_MESSAGE_NULL,
             String.format(ACTUAL_DATA, coreCaseData.getD8ReasonForDivorce())
-        );
+        ));
     }
 
     private List<String> getAllowedReasonsForDivorce(String marriageDate) {

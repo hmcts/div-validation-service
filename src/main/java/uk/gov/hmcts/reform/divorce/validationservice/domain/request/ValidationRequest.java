@@ -26,6 +26,6 @@ public class ValidationRequest {
 
     @JsonProperty(value = "data", required = true)
     @ApiModelProperty(value = "data to be validated", required = true)
-    private final CoreCaseData data;
+    private final Object data;
 
 }

@@ -8,6 +8,7 @@ import com.deliveredtechnologies.rulebook.annotation.When;
 import lombok.Data;
 import uk.gov.hmcts.reform.divorce.validationservice.domain.request.DivorceSession;
 
+import java.util.List;
 import java.util.Optional;
 
 @Rule
@@ -19,7 +20,7 @@ public class ScreenHasMarriageBroken {
     private static final String ERROR_MESSAGE = "screenHasMarriageBroken can not be null or empty.";
 
     @Result
-    public String result;
+    public List<String> result;
 
     @Given("divorceSession")
     public DivorceSession divorceSession = new DivorceSession();
@@ -31,10 +32,10 @@ public class ScreenHasMarriageBroken {
 
     @Then
     public void then() {
-        result = String.join(
+        result.add(String.join(
             BLANK_SPACE, // delimiter
             ERROR_MESSAGE,
             String.format(ACTUAL_DATA, divorceSession.getScreenHasMarriageBroken())
-        );
+        ));
     }
 }

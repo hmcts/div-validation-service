@@ -49,8 +49,9 @@ public class D8JurisdictionConnectionTest {
     public void thenShouldReturnErrorMessageWithNull() {
         rule.setCoreCaseData(coreCaseData);
 
-        rule.then();
+        rule.setResult(new ArrayList<>());
+		rule.then();
 
-        assertEquals("D8JurisdictionConnection can not be null or empty. Actual data is: null", rule.getResult());
+        assertEquals("D8JurisdictionConnection can not be null or empty. Actual data is: null", rule.getResult().get(0));
     }
 }

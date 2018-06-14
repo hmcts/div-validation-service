@@ -6,6 +6,7 @@ import org.junit.runner.RunWith;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
+import java.util.ArrayList;
 import java.util.Date;
 
 import uk.gov.hmcts.reform.divorce.validationservice.domain.request.DivorceSession;
@@ -65,8 +66,9 @@ public class ReasonForDivorceSeperationDateTest {
     public void thenShouldReturnErrorMessageWithNull() {
         rule.setDivorceSession(divorceSession);
 
-        rule.then();
+		rule.setResult(new ArrayList<>());
+		rule.then();
 
-        assertEquals("reasonForDivorceSeperationDate can not be null or empty. Actual data is: null", rule.getResult());
+        assertEquals("reasonForDivorceSeperationDate can not be null or empty. Actual data is: null", rule.getResult().get(0));
     }
 }

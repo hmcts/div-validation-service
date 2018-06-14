@@ -7,6 +7,8 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import uk.gov.hmcts.reform.divorce.validationservice.domain.request.CoreCaseData;
 
+import java.util.ArrayList;
+
 import static org.junit.Assert.assertEquals;
 
 import org.junit.Before;
@@ -46,8 +48,9 @@ public class D8LegalProceedingsTest {
     public void thenShouldReturnErrorMessageWithNull() {
         rule.setCoreCaseData(coreCaseData);
 
-        rule.then();
+        rule.setResult(new ArrayList<>());
+		rule.then();
 
-        assertEquals("D8LegalProceedings can not be null or empty. Actual data is: null", rule.getResult());
+        assertEquals("D8LegalProceedings can not be null or empty. Actual data is: null", rule.getResult().get(0));
     }
 }

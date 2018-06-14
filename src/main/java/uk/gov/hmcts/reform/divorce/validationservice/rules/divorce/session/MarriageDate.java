@@ -10,6 +10,7 @@ import lombok.Data;
 import java.time.Instant;
 import java.time.temporal.ChronoUnit;
 import java.util.Date;
+import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
@@ -28,7 +29,7 @@ public class MarriageDate {
     private static final String ERROR_MESSAGE_IN_THE_FUTURE = "marriageDate can not be in the future.";
 
     @Result
-    public String result;
+    public List<String> result;
 
     @Given("divorceSession")
     public DivorceSession divorceSession = new DivorceSession();
@@ -46,11 +47,11 @@ public class MarriageDate {
     public void then() {
         String errorMessage = deriveErrorMessage();
 
-        result = String.join(
+        result.add(String.join(
             BLANK_SPACE, // delimiter
             errorMessage,
             String.format(ACTUAL_DATA, divorceSession.getMarriageDate())
-        );
+        ));
     }
 
     private boolean isNull() {

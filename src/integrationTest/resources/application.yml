@@ -1,0 +1,3 @@
+validation-service:
+  base-url: ${TEST_URL:http://localhost:4008}
+  validate-endpoint: ${DIV_VALIDATION_SERVICE_ENDPOINT:/version/1/validate"}

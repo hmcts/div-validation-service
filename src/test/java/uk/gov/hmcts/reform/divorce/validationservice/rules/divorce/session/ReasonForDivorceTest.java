@@ -8,6 +8,7 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import java.time.Instant;
 import java.time.temporal.ChronoUnit;
+import java.util.ArrayList;
 import java.util.Date;
 
 import uk.gov.hmcts.reform.divorce.validationservice.domain.request.DivorceSession;
@@ -149,9 +150,10 @@ public class ReasonForDivorceTest {
     public void thenShouldReturnErrorMessageWithNullWhenReasonForDivorceIsNotSet() {
         rule.setDivorceSession(divorceSession);
 
-        rule.then();
+		rule.setResult(new ArrayList<>());
+		rule.then();
 
-        assertEquals("reasonForDivorce can not be null or empty. Actual data is: null", rule.getResult());
+        assertEquals("reasonForDivorce can not be null or empty. Actual data is: null", rule.getResult().get(0));
     }
 
     @Test
@@ -160,8 +162,10 @@ public class ReasonForDivorceTest {
         
         rule.setDivorceSession(divorceSession);
 
-        rule.then();
 
-        assertEquals("reasonForDivorce is invalid for the current date of marriage. Actual data is: Yes", rule.getResult());
+		rule.setResult(new ArrayList<>());
+		rule.then();
+
+        assertEquals("reasonForDivorce is invalid for the current date of marriage. Actual data is: Yes", rule.getResult().get(0));
     }
 }

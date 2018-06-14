@@ -58,8 +58,9 @@ public class ReasonForDivorceBehaviourDetailsTest {
     public void thenShouldReturnErrorMessageWithNull() {
         rule.setDivorceSession(divorceSession);
 
-        rule.then();
+		rule.setResult(new ArrayList<>());
+		rule.then();
 
-        assertEquals("reasonForDivorceBehaviourDetails can not be null or empty. Actual data is: null", rule.getResult());
+        assertEquals("reasonForDivorceBehaviourDetails can not be null or empty. Actual data is: null", rule.getResult().get(0));
     }
 }

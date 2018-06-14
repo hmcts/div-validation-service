@@ -8,6 +8,7 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import java.time.Instant;
 import java.time.temporal.ChronoUnit;
+import java.util.ArrayList;
 
 import uk.gov.hmcts.reform.divorce.validationservice.domain.request.CoreCaseData;
 import uk.gov.hmcts.reform.divorce.validationservice.utils.impl.DateUtils;
@@ -83,9 +84,10 @@ public class D8MarriageDateTest {
     public void thenShouldReturnErrorMessageWithNull() {
         rule.setCoreCaseData(coreCaseData);
 
-        rule.then();
+        rule.setResult(new ArrayList<>());
+		rule.then();
 
-        assertEquals("D8MarriageDate can not be null or empty. Actual data is: null", rule.getResult());
+        assertEquals("D8MarriageDate can not be null or empty. Actual data is: null", rule.getResult().get(0));
     }
 
     @Test
@@ -95,9 +97,10 @@ public class D8MarriageDateTest {
         
         rule.setCoreCaseData(coreCaseData);
 
-        rule.then();
+        rule.setResult(new ArrayList<>());
+		rule.then();
 
-        assertEquals("D8MarriageDate can not be less than one year ago. Actual data is: ".concat(D8MarriageDate), rule.getResult());
+        assertEquals("D8MarriageDate can not be less than one year ago. Actual data is: ".concat(D8MarriageDate), rule.getResult().get(0));
     }
 
     @Test
@@ -107,9 +110,10 @@ public class D8MarriageDateTest {
         
         rule.setCoreCaseData(coreCaseData);
 
-        rule.then();
+        rule.setResult(new ArrayList<>());
+		rule.then();
 
-        assertEquals("D8MarriageDate can not be more than 100 years ago. Actual data is: ".concat(D8MarriageDate), rule.getResult());
+        assertEquals("D8MarriageDate can not be more than 100 years ago. Actual data is: ".concat(D8MarriageDate), rule.getResult().get(0));
     }
 
     @Test
@@ -119,8 +123,9 @@ public class D8MarriageDateTest {
         
         rule.setCoreCaseData(coreCaseData);
 
-        rule.then();
+        rule.setResult(new ArrayList<>());
+		rule.then();
 
-        assertEquals("D8MarriageDate can not be in the future. Actual data is: ".concat(D8MarriageDate), rule.getResult());
+        assertEquals("D8MarriageDate can not be in the future. Actual data is: ".concat(D8MarriageDate), rule.getResult().get(0));
     }
 }
