@@ -6,15 +6,14 @@ import com.deliveredtechnologies.rulebook.annotation.Rule;
 import com.deliveredtechnologies.rulebook.annotation.Then;
 import com.deliveredtechnologies.rulebook.annotation.When;
 import lombok.Data;
+import uk.gov.hmcts.reform.divorce.validationservice.domain.request.CoreCaseData;
+import uk.gov.hmcts.reform.divorce.validationservice.utils.impl.DateUtils;
 
 import java.time.Instant;
 import java.time.temporal.ChronoUnit;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
-
-import uk.gov.hmcts.reform.divorce.validationservice.domain.request.CoreCaseData;
-import uk.gov.hmcts.reform.divorce.validationservice.utils.impl.DateUtils;
 
 @Rule
 @Data
@@ -23,7 +22,8 @@ public class D8ReasonForDivorce {
     private static final String BLANK_SPACE = " ";
     private static final String ACTUAL_DATA = "Actual data is: %s";
     private static final String ERROR_MESSAGE_NULL = "D8ReasonForDivorce can not be null or empty.";
-    private static final String ERROR_MESSAGE_INVALID = "D8ReasonForDivorce is invalid for the current date of marriage.";
+    private static final String ERROR_MESSAGE_INVALID = 
+            "D8ReasonForDivorce is invalid for the current date of marriage.";
 
     @Result
     public List<String> result;
@@ -42,9 +42,9 @@ public class D8ReasonForDivorce {
     public void then() {
         result.add(String.join(
             BLANK_SPACE, // delimiter
-            Optional.ofNullable(coreCaseData.getD8ReasonForDivorce()).isPresent() ?
-                ERROR_MESSAGE_INVALID :
-                ERROR_MESSAGE_NULL,
+            Optional.ofNullable(coreCaseData.getD8ReasonForDivorce()).isPresent() 
+                ? ERROR_MESSAGE_INVALID
+                : ERROR_MESSAGE_NULL,
             String.format(ACTUAL_DATA, coreCaseData.getD8ReasonForDivorce())
         ));
     }

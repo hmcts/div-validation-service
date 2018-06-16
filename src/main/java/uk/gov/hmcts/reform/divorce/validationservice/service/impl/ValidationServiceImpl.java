@@ -33,9 +33,6 @@ public class ValidationServiceImpl implements ValidationService {
 
     @Override
     public ValidationResponse validate(final ValidationRequest validationRequest) {
-        System.out.println("Should show this to validate");
-        System.out.println("D8RuleBook has rules");
-        System.out.println(d8RuleBook.hasRules());
         ObjectMapper mapper = new ObjectMapper();
 
         ValidationResponse validationResponse = ValidationResponse.builder()
@@ -43,6 +40,7 @@ public class ValidationServiceImpl implements ValidationService {
             .build();
 
         if (validationRequest.getFormId().contains("case")) {
+            log.info("Validating CoreCaseData");
             NameValueReferableMap<CoreCaseData> facts = new FactMap<>();
             facts.setValue("coreCaseData", mapper.convertValue(validationRequest.getData(), CoreCaseData.class));
             d8RuleBook.setDefaultResult(new ArrayList<>());
@@ -51,11 +49,13 @@ public class ValidationServiceImpl implements ValidationService {
         }
 
         if (validationRequest.getFormId().contains("session")) {
+            log.info("Validating DivorceSession");
             NameValueReferableMap<DivorceSession> facts = new FactMap<>();
             facts.setValue("divorceSession", mapper.convertValue(validationRequest.getData(), DivorceSession.class));
             divorceSessionRuleBook.setDefaultResult(new ArrayList<>());
             divorceSessionRuleBook.run(facts);
-            divorceSessionRuleBook.getResult().map(Result::getValue).ifPresent(result -> errorResponse(validationResponse, result));
+            divorceSessionRuleBook.getResult().map(Result::getValue)
+                .ifPresent(result -> errorResponse(validationResponse, result));
         }
 
         return validationResponse;

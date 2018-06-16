@@ -5,10 +5,9 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
+import uk.gov.hmcts.reform.divorce.validationservice.domain.request.CoreCaseData;
 
 import java.util.ArrayList;
-
-import uk.gov.hmcts.reform.divorce.validationservice.domain.request.CoreCaseData;
 
 import static org.junit.Assert.assertEquals;
 
@@ -17,17 +16,17 @@ import static org.junit.Assert.assertEquals;
 public class D8DivorceCostsClaimTest {
 
     private D8DivorceCostsClaim rule;
-    private CoreCaseData divorceSession;
+    private CoreCaseData coreCaseData;
 
     @Before
     public void setup() {
         rule = new D8DivorceCostsClaim();
-        divorceSession = new CoreCaseData();
+        coreCaseData = new CoreCaseData();
     }
 
     @Test
     public void whenShouldReturnTrueWhenD8DivorceCostsClaimIsNull() {
-        rule.setCoreCaseData(divorceSession);
+        rule.setCoreCaseData(coreCaseData);
         boolean result = rule.when();
         
         assertEquals(true, result);
@@ -35,9 +34,9 @@ public class D8DivorceCostsClaimTest {
 
     @Test
     public void whenShouldReturnFalseWhenD8DivorceCostsClaimIsNotNull() {
-        divorceSession.setD8DivorceCostsClaim("Yes");
+        coreCaseData.setD8DivorceCostsClaim("Yes");
 
-        rule.setCoreCaseData(divorceSession);
+        rule.setCoreCaseData(coreCaseData);
         boolean result = rule.when();
 
         assertEquals(false, result);
@@ -45,10 +44,10 @@ public class D8DivorceCostsClaimTest {
 
     @Test
     public void thenShouldReturnErrorMessageWithNull() {
-        rule.setCoreCaseData(divorceSession);
+        rule.setCoreCaseData(coreCaseData);
 
         rule.setResult(new ArrayList<>());
-		rule.then();
+        rule.then();
 
         assertEquals("D8DivorceCostsClaim can not be null or empty. Actual data is: null", rule.getResult().get(0));
     }

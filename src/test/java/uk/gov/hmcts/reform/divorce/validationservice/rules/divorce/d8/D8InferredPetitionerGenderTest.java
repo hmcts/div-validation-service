@@ -5,11 +5,10 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
-
-import java.util.ArrayList;
-
 import uk.gov.hmcts.reform.divorce.validationservice.domain.request.CoreCaseData;
 import uk.gov.hmcts.reform.divorce.validationservice.domain.request.Gender;
+
+import java.util.ArrayList;
 
 import static org.junit.Assert.assertEquals;
 
@@ -49,8 +48,9 @@ public class D8InferredPetitionerGenderTest {
         rule.setCoreCaseData(coreCaseData);
 
         rule.setResult(new ArrayList<>());
-		rule.then();
+        rule.then();
 
-        assertEquals("D8InferredPetitionerGender can not be null or empty. Actual data is: null", rule.getResult().get(0));
+        assertEquals("D8InferredPetitionerGender can not be null or empty. Actual data is: null",
+            rule.getResult().get(0));
     }
 }

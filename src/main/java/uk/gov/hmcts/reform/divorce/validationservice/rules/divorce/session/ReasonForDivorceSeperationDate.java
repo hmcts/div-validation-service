@@ -29,8 +29,10 @@ public class ReasonForDivorceSeperationDate {
 
     @When
     public boolean when() {
-        return (Optional.ofNullable(divorceSession.getReasonForDivorce()).orElse("").equalsIgnoreCase(REASON_SEPARATION_2_YEARS)
-                || Optional.ofNullable(divorceSession.getReasonForDivorce()).orElse("").equalsIgnoreCase(REASON_SEPARATION_5_YEARS))
+        return (Optional.ofNullable(divorceSession.getReasonForDivorce()).orElse("")
+                .equalsIgnoreCase(REASON_SEPARATION_2_YEARS)
+            || Optional.ofNullable(divorceSession.getReasonForDivorce()).orElse("")
+                .equalsIgnoreCase(REASON_SEPARATION_5_YEARS))
             && !Optional.ofNullable(divorceSession.getReasonForDivorceSeperationDate()).isPresent();
     }
 

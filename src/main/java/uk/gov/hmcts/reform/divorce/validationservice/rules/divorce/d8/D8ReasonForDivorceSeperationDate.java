@@ -29,8 +29,10 @@ public class D8ReasonForDivorceSeperationDate {
 
     @When
     public boolean when() {
-        return (Optional.ofNullable(coreCaseData.getD8ReasonForDivorce()).orElse("").equalsIgnoreCase(REASON_SEPARATION_2_YEARS)
-                || Optional.ofNullable(coreCaseData.getD8ReasonForDivorce()).orElse("").equalsIgnoreCase(REASON_SEPARATION_5_YEARS))
+        return (Optional.ofNullable(coreCaseData.getD8ReasonForDivorce()).orElse("")
+                .equalsIgnoreCase(REASON_SEPARATION_2_YEARS)
+            || Optional.ofNullable(coreCaseData.getD8ReasonForDivorce()).orElse("")
+                .equalsIgnoreCase(REASON_SEPARATION_5_YEARS))
             && !Optional.ofNullable(coreCaseData.getD8ReasonForDivorceSeperationDate()).isPresent();
     }
 

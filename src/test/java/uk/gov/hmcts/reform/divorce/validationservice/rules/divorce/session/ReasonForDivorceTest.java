@@ -5,13 +5,12 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
+import uk.gov.hmcts.reform.divorce.validationservice.domain.request.DivorceSession;
 
 import java.time.Instant;
 import java.time.temporal.ChronoUnit;
 import java.util.ArrayList;
 import java.util.Date;
-
-import uk.gov.hmcts.reform.divorce.validationservice.domain.request.DivorceSession;
 
 import static org.junit.Assert.assertEquals;
 
@@ -150,8 +149,8 @@ public class ReasonForDivorceTest {
     public void thenShouldReturnErrorMessageWithNullWhenReasonForDivorceIsNotSet() {
         rule.setDivorceSession(divorceSession);
 
-		rule.setResult(new ArrayList<>());
-		rule.then();
+        rule.setResult(new ArrayList<>());
+        rule.then();
 
         assertEquals("reasonForDivorce can not be null or empty. Actual data is: null", rule.getResult().get(0));
     }
@@ -163,9 +162,10 @@ public class ReasonForDivorceTest {
         rule.setDivorceSession(divorceSession);
 
 
-		rule.setResult(new ArrayList<>());
-		rule.then();
+        rule.setResult(new ArrayList<>());
+        rule.then();
 
-        assertEquals("reasonForDivorce is invalid for the current date of marriage. Actual data is: Yes", rule.getResult().get(0));
+        assertEquals("reasonForDivorce is invalid for the current date of marriage. Actual data is: Yes",
+            rule.getResult().get(0));
     }
 }

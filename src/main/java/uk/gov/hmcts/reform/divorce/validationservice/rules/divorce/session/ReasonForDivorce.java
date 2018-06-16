@@ -41,9 +41,9 @@ public class ReasonForDivorce {
     public void then() {
         result.add(String.join(
             BLANK_SPACE, // delimiter
-            Optional.ofNullable(divorceSession.getReasonForDivorce()).isPresent() ?
-                ERROR_MESSAGE_INVALID :
-                ERROR_MESSAGE_NULL,
+            Optional.ofNullable(divorceSession.getReasonForDivorce()).isPresent() 
+                ? ERROR_MESSAGE_INVALID
+                : ERROR_MESSAGE_NULL,
             String.format(ACTUAL_DATA, divorceSession.getReasonForDivorce())
         ));
     }

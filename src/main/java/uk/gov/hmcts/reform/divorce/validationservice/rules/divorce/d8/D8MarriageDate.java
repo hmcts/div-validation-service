@@ -6,6 +6,8 @@ import com.deliveredtechnologies.rulebook.annotation.Rule;
 import com.deliveredtechnologies.rulebook.annotation.Then;
 import com.deliveredtechnologies.rulebook.annotation.When;
 import lombok.Data;
+import uk.gov.hmcts.reform.divorce.validationservice.domain.request.CoreCaseData;
+import uk.gov.hmcts.reform.divorce.validationservice.utils.impl.DateUtils;
 
 import java.time.Instant;
 import java.time.temporal.ChronoUnit;
@@ -14,9 +16,6 @@ import java.util.Optional;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
-import uk.gov.hmcts.reform.divorce.validationservice.domain.request.CoreCaseData;
-import uk.gov.hmcts.reform.divorce.validationservice.utils.impl.DateUtils;
-
 @Rule
 @Data
 public class D8MarriageDate {
@@ -24,8 +23,10 @@ public class D8MarriageDate {
     private static final String BLANK_SPACE = " ";
     private static final String ACTUAL_DATA = "Actual data is: %s";
     private static final String ERROR_MESSAGE_NULL = "D8MarriageDate can not be null or empty.";
-    private static final String ERROR_MESSAGE_LESS_THAN_ONE_YEAR_AGO = "D8MarriageDate can not be less than one year ago.";
-    private static final String ERROR_MESSAGE_MORE_THAN_ONE_HUNDRED_YEARS_AGO = "D8MarriageDate can not be more than 100 years ago.";
+    private static final String ERROR_MESSAGE_LESS_THAN_ONE_YEAR_AGO = 
+            "D8MarriageDate can not be less than one year ago.";
+    private static final String ERROR_MESSAGE_MORE_THAN_ONE_HUNDRED_YEARS_AGO = 
+            "D8MarriageDate can not be more than 100 years ago.";
     private static final String ERROR_MESSAGE_IN_THE_FUTURE = "D8MarriageDate can not be in the future.";
 
     @Result
@@ -59,7 +60,8 @@ public class D8MarriageDate {
     }
 
     private boolean isLessThanOneYearAgo(String date) {
-        return !DateUtils.parseToInstant(date).isAfter(Instant.now()) && DateUtils.parseToInstant(date).isAfter(Instant.now().minus(365, ChronoUnit.DAYS));
+        return !DateUtils.parseToInstant(date).isAfter(Instant.now()) 
+            && DateUtils.parseToInstant(date).isAfter(Instant.now().minus(365, ChronoUnit.DAYS));
     }
 
     private boolean isOverOneHundredYearsAgo(String date) {
@@ -72,9 +74,9 @@ public class D8MarriageDate {
 
     private String deriveErrorMessage() {
         String marriageDate = coreCaseData.getD8MarriageDate();
-        return isNull() ? 
-            ERROR_MESSAGE_NULL : 
-            Stream.of(
+        return isNull() 
+            ? ERROR_MESSAGE_NULL
+            : Stream.of(
                 isLessThanOneYearAgo(marriageDate) ? ERROR_MESSAGE_LESS_THAN_ONE_YEAR_AGO : "",
                 isOverOneHundredYearsAgo(marriageDate) ? ERROR_MESSAGE_MORE_THAN_ONE_HUNDRED_YEARS_AGO : "",
                 isInTheFuture(marriageDate) ? ERROR_MESSAGE_IN_THE_FUTURE : ""

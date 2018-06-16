@@ -1,7 +1,7 @@
 {
-  "validationStatus": "failed",
-  "errors": [
-    "marriageDate can not be more than 100 years ago. Actual data is: Sun Feb 02 00:00:00 GMT 1001"
-  ],
-  "warnings": null
+    "validationStatus": "failed",
+    "errors": [
+        "marriageDate can not be more than 100 years ago. Actual data is: Sun Feb 02 00:00:00 GMT 1001"
+    ],
+    "warnings": null
 }

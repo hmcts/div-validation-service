@@ -5,10 +5,9 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
+import uk.gov.hmcts.reform.divorce.validationservice.domain.request.DivorceSession;
 
 import java.util.ArrayList;
-
-import uk.gov.hmcts.reform.divorce.validationservice.domain.request.DivorceSession;
 
 import static org.junit.Assert.assertEquals;
 
@@ -47,9 +46,10 @@ public class PetitionerContactDetailsConfidentialTest {
     public void thenShouldReturnErrorMessageWithNull() {
         rule.setDivorceSession(divorceSession);
 
-		rule.setResult(new ArrayList<>());
-		rule.then();
+        rule.setResult(new ArrayList<>());
+        rule.then();
 
-        assertEquals("petitionerContactDetailsConfidential can not be null or empty. Actual data is: null", rule.getResult().get(0));
+        assertEquals("petitionerContactDetailsConfidential can not be null or empty. Actual data is: null",
+            rule.getResult().get(0));
     }
 }

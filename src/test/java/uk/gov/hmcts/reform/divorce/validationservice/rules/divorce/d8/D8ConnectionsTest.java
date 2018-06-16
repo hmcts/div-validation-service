@@ -5,10 +5,10 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
+import uk.gov.hmcts.reform.divorce.validationservice.domain.request.Connections;
+import uk.gov.hmcts.reform.divorce.validationservice.domain.request.CoreCaseData;
 
 import java.util.ArrayList;
-
-import uk.gov.hmcts.reform.divorce.validationservice.domain.request.CoreCaseData;
 
 import static org.junit.Assert.assertEquals;
 
@@ -18,7 +18,7 @@ public class D8ConnectionsTest {
 
     private D8Connections rule;
     private CoreCaseData coreCaseData;
-    private uk.gov.hmcts.reform.divorce.validationservice.domain.request.Connections D8Connections;
+    private Connections d8Connections;
 
     @Before
     public void setup() {
@@ -36,8 +36,8 @@ public class D8ConnectionsTest {
 
     @Test
     public void whenShouldReturnFalseWhenD8ConnectionsIsNotNull() {
-        D8Connections = new uk.gov.hmcts.reform.divorce.validationservice.domain.request.Connections();
-        coreCaseData.setD8Connections(D8Connections);
+        d8Connections = new uk.gov.hmcts.reform.divorce.validationservice.domain.request.Connections();
+        coreCaseData.setD8Connections(d8Connections);
 
         rule.setCoreCaseData(coreCaseData);
         boolean result = rule.when();
@@ -50,8 +50,7 @@ public class D8ConnectionsTest {
         rule.setCoreCaseData(coreCaseData);
 
         rule.setResult(new ArrayList<>());
-        rule.setResult(new ArrayList<>());
-		rule.then();
+        rule.then();
 
         assertEquals("D8Connections can not be null or empty. Actual data is: null", rule.getResult().get(0));
     }

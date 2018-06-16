@@ -5,13 +5,12 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
+import uk.gov.hmcts.reform.divorce.validationservice.domain.request.CoreCaseData;
+import uk.gov.hmcts.reform.divorce.validationservice.utils.impl.DateUtils;
 
 import java.time.Instant;
 import java.time.temporal.ChronoUnit;
 import java.util.ArrayList;
-
-import uk.gov.hmcts.reform.divorce.validationservice.domain.request.CoreCaseData;
-import uk.gov.hmcts.reform.divorce.validationservice.utils.impl.DateUtils;
 
 import static org.junit.Assert.assertEquals;
 
@@ -151,7 +150,7 @@ public class D8ReasonForDivorceTest {
         rule.setCoreCaseData(coreCaseData);
 
         rule.setResult(new ArrayList<>());
-		rule.then();
+        rule.then();
 
         assertEquals("D8ReasonForDivorce can not be null or empty. Actual data is: null", rule.getResult().get(0));
     }
@@ -163,8 +162,9 @@ public class D8ReasonForDivorceTest {
         rule.setCoreCaseData(coreCaseData);
 
         rule.setResult(new ArrayList<>());
-		rule.then();
+        rule.then();
 
-        assertEquals("D8ReasonForDivorce is invalid for the current date of marriage. Actual data is: Yes", rule.getResult().get(0));
+        assertEquals("D8ReasonForDivorce is invalid for the current date of marriage. Actual data is: Yes",
+            rule.getResult().get(0));
     }
 }

@@ -14,7 +14,7 @@ import java.util.Optional;
 // Test Rule which is replica of actual ScreenHasMarriageBroken rule
 @Rule
 @Data
-public class ScreenHasMarriageBroken {
+public class ScreenHasMarriageBrokenTestRule {
 
     private static final String BLANK_SPACE = " ";
     private static final String ACTUAL_DATA = "Actual data is: %s";

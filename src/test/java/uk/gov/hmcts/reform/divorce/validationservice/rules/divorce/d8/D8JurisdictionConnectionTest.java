@@ -5,11 +5,10 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
-
-import java.util.List;
-import java.util.ArrayList;
-
 import uk.gov.hmcts.reform.divorce.validationservice.domain.request.CoreCaseData;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import static org.junit.Assert.assertEquals;
 
@@ -36,8 +35,8 @@ public class D8JurisdictionConnectionTest {
 
     @Test
     public void whenShouldReturnFalseWhenD8JurisdictionConnectionIsNotNull() {
-        List<String> D8JurisdictionConnection = new ArrayList<>();
-        coreCaseData.setD8JurisdictionConnection(D8JurisdictionConnection);
+        List<String> d8JurisdictionConnection = new ArrayList<>();
+        coreCaseData.setD8JurisdictionConnection(d8JurisdictionConnection);
 
         rule.setCoreCaseData(coreCaseData);
         boolean result = rule.when();
@@ -50,8 +49,9 @@ public class D8JurisdictionConnectionTest {
         rule.setCoreCaseData(coreCaseData);
 
         rule.setResult(new ArrayList<>());
-		rule.then();
+        rule.then();
 
-        assertEquals("D8JurisdictionConnection can not be null or empty. Actual data is: null", rule.getResult().get(0));
+        assertEquals("D8JurisdictionConnection can not be null or empty. Actual data is: null",
+            rule.getResult().get(0));
     }
 }

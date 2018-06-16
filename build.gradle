@@ -24,7 +24,7 @@ plugins {
 }
 
 group = 'uk.gov.hmcts.reform.divorce'
-version = '0.1.0'
+version = '1.0.0'
 sourceCompatibility = 1.8
 
 sourceSets {
@@ -32,16 +32,12 @@ sourceSets {
         java {
             compileClasspath += main.output + test.output
             runtimeClasspath += main.output + test.output
-            srcDir('src/integrationTest/java')
+            srcDirs = ['src/integrationTest/java']
         }
         resources {
-            srcDir('src/integrationTest/resources')
+            srcDirs = ['src/integrationTest/resources']
         }
     }
-}
-
-dependencies {
-    integrationTestCompile(sourceSets.test.output)
 }
 
 configurations {
@@ -64,6 +60,10 @@ compileJava {
     options.compilerArgs << '-parameters' << '-Xlint:deprecation'
 }
 
+compileTestJava {
+    options.compilerArgs << '-Xlint:deprecation'
+}
+
 distributions {
     main {
         contents {
@@ -74,9 +74,8 @@ distributions {
     }
 }
 
-
-compileTestJava {
-    options.compilerArgs << '-Xlint:deprecation'
+tasks.withType(JavaCompile) {
+    options.encoding = 'UTF-8'
 }
 
 repositories {
@@ -136,6 +135,7 @@ def versions = [
 
 dependencies {
     //integration test
+    integrationTestCompile(sourceSets.test.output)
     integrationTestCompile group: 'com.mashape.unirest', name: 'unirest-java', version: '1.4.9'
     integrationTestCompile group: 'com.nimbusds', name: 'nimbus-jose-jwt', version: '5.1'
     integrationTestCompile group: 'io.rest-assured', name: 'rest-assured', version: '3.0.3'
@@ -150,7 +150,6 @@ dependencies {
     integrationTestCompile group: 'org.skyscreamer', name:'jsonassert', version: '1.2.3'
     integrationTestCompile group: 'org.springframework.boot', name: 'spring-boot-starter-web'
     integrationTestCompile group: 'org.springframework.boot', name: 'spring-boot-starter-test'
-    integrationTestCompile group: 'uk.gov.hmcts.reform', name:'service-auth-provider-client', version: versions.serviceTokenGenerator
 
     compile group: 'com.fasterxml.jackson.core', name: 'jackson-databind', version: versions.jacksonCore
     compile group: 'com.deliveredtechnologies', name:'rulebook-core', version:'0.9.1'
@@ -192,16 +191,21 @@ pmd {
     ruleSetFiles = files("ruleset.xml")
 }
 
+
+test {
+    exclude '**/*FunctionalTest.class'
+}
+
 task smoke(type:Test) {
     group = 'Delivery pipeline'
     description = 'Executes non-destructive smoke tests against a running Claim Store instance'
     include "uk/gov/hmcts/**/smoketest/**"
 }
 
-task functional(type:Test) {
-    group = 'Delivery pipeline'
-    //we need to separate out functional test.
-    include "uk/gov/hmcts/**/service/**"
+task functional(type: Test, description: 'Runs the functional tests', group: 'Verification') {
+    setTestClassesDirs(sourceSets.integrationTest.output.classesDirs)
+    setClasspath(sourceSets.integrationTest.runtimeClasspath)
+    
 }
 
 def sonarExclusions = [
@@ -220,11 +224,6 @@ sonarqube {
         property "sonar.jacoco.itReportPath", "${project.buildDir}/jacoco/apiTest.exec"
         property "sonar.exclusions", sonarExclusions.join(", ")
     }
-}
-
-
-task developAddRelaseSuffix() {
-    version = "${version}-SNAPSHOT"
 }
 
 jacocoTestReport {
