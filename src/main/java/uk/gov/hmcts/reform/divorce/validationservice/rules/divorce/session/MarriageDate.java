@@ -16,7 +16,7 @@ import java.util.Optional;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
-@Rule
+@Rule(order = 2)
 @Data
 public class MarriageDate {
 

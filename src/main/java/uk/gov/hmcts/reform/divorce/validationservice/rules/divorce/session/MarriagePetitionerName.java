@@ -11,7 +11,7 @@ import uk.gov.hmcts.reform.divorce.validationservice.domain.request.DivorceSessi
 import java.util.List;
 import java.util.Optional;
 
-@Rule
+@Rule(order = 3)
 @Data
 public class MarriagePetitionerName {
 

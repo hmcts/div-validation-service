@@ -15,7 +15,7 @@ import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 
-@Rule
+@Rule(order = 14)
 @Data
 public class ReasonForDivorce {
 

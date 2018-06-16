@@ -15,7 +15,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
-@Rule
+@Rule(order = 16)
 @Data
 public class D8ReasonForDivorce {
 

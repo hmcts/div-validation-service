@@ -11,7 +11,7 @@ import uk.gov.hmcts.reform.divorce.validationservice.domain.request.CoreCaseData
 import java.util.List;
 import java.util.Optional;
 
-@Rule
+@Rule(order = 22)
 @Data
 public class D8ReasonForDivorceAdulteryDetails {
 
