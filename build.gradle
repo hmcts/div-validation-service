@@ -45,12 +45,11 @@ configurations {
     integrationTestRuntime.extendsFrom testRuntime
 }
 
-jar {
+bootJar {
     manifest {
         attributes 'Implementation-Title': project.name,
                 'Implementation-Version': project.version
     }
-
     archiveName 'div-validation-service.jar'
 }
 
