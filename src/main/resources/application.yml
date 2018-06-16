@@ -11,11 +11,6 @@ info:
   app:
     name: ${spring.application.name}
 
-evidence-management-api:
-  service:
-    stub:
-      enabled: false
-
 documentation:
   swagger:
     enabled: true
@@ -60,6 +55,9 @@ management:
         time-to-live: 1000
     metrics:
       enabled: true
+  endpoints:
+    web:
+      base-path: /
 
 logging:
   level:
