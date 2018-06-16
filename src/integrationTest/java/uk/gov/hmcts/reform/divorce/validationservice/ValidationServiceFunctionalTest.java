@@ -83,6 +83,7 @@ public class ValidationServiceFunctionalTest {
     }
 
     private Response postToValidateEndpoint(String filePath) throws Exception {
+        SerenityRest.useRelaxedHTTPSValidation();
         return SerenityRest.given()
                 .contentType("application/json")
                 .body(getJsonFileAsString(filePath))
