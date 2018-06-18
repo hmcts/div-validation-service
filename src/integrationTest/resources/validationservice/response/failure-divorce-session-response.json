@@ -1,0 +1,25 @@
+{
+    "validationStatus": "failed",
+    "errors": [
+        "screenHasMarriageBroken can not be null or empty. Actual data is: null",
+        "marriageDate can not be null or empty. Actual data is: null",
+        "marriagePetitionerName can not be null or empty. Actual data is: null",
+        "marriageRespondentName can not be null or empty. Actual data is: null",
+        "petitionerEmail can not be null or empty. Actual data is: null",
+        "petitionerFirstName can not be null or empty. Actual data is: null",
+        "petitionerLastName can not be null or empty. Actual data is: null",
+        "petitionerContactDetailsConfidential can not be null or empty. Actual data is: null",
+        "petitionerHomeAddress can not be null or empty. Actual data is: null",
+        "petitionerCorrespondenceAddress can not be null or empty. Actual data is: null",
+        "respondentFirstName can not be null or empty. Actual data is: null",
+        "respondentLastName can not be null or empty. Actual data is: null",
+        "legalProceedings can not be null or empty. Actual data is: null",
+        "reasonForDivorce can not be null or empty. Actual data is: null",
+        "financialOrder can not be null or empty. Actual data is: null",
+        "claimsCosts can not be null or empty. Actual data is: null",
+        "jurisdictionConnection can not be null or empty. Actual data is: null",
+        "connections can not be null or empty. Actual data is: null",
+        "confirmPrayer can not be null or empty. Actual data is: null"
+    ],
+    "warnings": null
+}

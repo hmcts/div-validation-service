@@ -1,0 +1,41 @@
+{
+  "data": {
+    "D8Connections": {
+      "A": "The Petitioner and the Respondent are habitually resident in England and Wales"
+    },
+    "D8DivorceCostsClaim": "YES",
+    "D8FinancialOrder": "YES",
+    "D8InferredPetitionerGender": "male",
+    "D8InferredRespondentGender": "female",
+    "D8JurisdictionConnection": [
+      "A"
+    ],
+    "D8LegalProceedings": "YES",
+    "D8MarriageDate": "1001-02-02",
+    "D8MarriagePetitionerName": "John Doe",
+    "D8MarriageRespondentName": "Jenny Benny",
+    "D8PetitionerContactDetailsConfidential": "share",
+    "D8PetitionerCorrespondenceAddress": {
+      "PostCode": "SW9 9PE"
+    },
+    "D8PetitionerEmail": "email@email.com",
+    "D8PetitionerFirstName": "John",
+    "D8PetitionerHomeAddress": {
+      "PostCode": "SW9 9PE"
+    },
+    "D8PetitionerLastName": "Smith",
+    "D8ReasonForDivorceAdulteryDetails": "My wife is having an affair this week.",
+    "D8ReasonForDivorceBehaviourDetails": "My wife is having an affair this week.",
+    "D8ReasonForDivorceDesertionAgreed": "YES",
+    "D8ReasonForDivorceDesertionDate": "2010-02-02",
+    "D8ReasonForDivorceDesertionDetails": "My wife is having an affair this week.",
+    "D8ReasonForDivorceSeperationDate": "2010-02-02",
+    "D8ReasonForDivorce": "unreasonable-behaviour",
+    "D8RespondentFirstName": "Jane",
+    "D8RespondentLastName": "Jamed",
+    "D8ScreenHasMarriageBroken": "YES",
+    "D8StatementOfTruth": "YES"
+  },
+  "formId": "case-progression",
+  "sectionId": "string"
+}

@@ -6,7 +6,8 @@ import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Builder;
 import lombok.Value;
-import org.hibernate.validator.constraints.NotBlank;
+
+import javax.validation.constraints.NotBlank;
 
 @Value
 @ApiModel(description = "Request body model for validation service Request")
@@ -25,6 +26,6 @@ public class ValidationRequest {
 
     @JsonProperty(value = "data", required = true)
     @ApiModelProperty(value = "data to be validated", required = true)
-    private final CoreCaseData data;
+    private final Object data;
 
 }

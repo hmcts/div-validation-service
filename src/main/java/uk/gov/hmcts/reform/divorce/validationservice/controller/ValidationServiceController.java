@@ -31,6 +31,7 @@ public class ValidationServiceController {
     @PostMapping("/version/1/validate")
     public ValidationResponse validate(@RequestBody @Valid @ApiParam(value = "Validation Request", required = true)
                                                ValidationRequest validationRequest) {
+        log.info("Validation request received with formId:", validationRequest.getFormId());
         return validationService.validate(validationRequest);
     }
 }
