@@ -1,7 +1,6 @@
-package uk.gov.hmcts.reform.divorce.validationservice.utils.impl;
+package uk.gov.hmcts.reform.divorce.validationservice.utils;
 
 import lombok.extern.slf4j.Slf4j;
-import uk.gov.hmcts.reform.divorce.validationservice.utils.Utils;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -11,7 +10,7 @@ import java.util.Date;
 import java.util.Locale;
 
 @Slf4j
-public class DateUtils implements Utils {
+public class DateUtils {
 
     public static Instant parseToInstant(String date) {
         Instant instant = null;

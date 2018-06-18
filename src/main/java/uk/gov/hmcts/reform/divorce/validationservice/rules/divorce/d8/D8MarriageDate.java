@@ -7,7 +7,7 @@ import com.deliveredtechnologies.rulebook.annotation.Then;
 import com.deliveredtechnologies.rulebook.annotation.When;
 import lombok.Data;
 import uk.gov.hmcts.reform.divorce.validationservice.domain.request.CoreCaseData;
-import uk.gov.hmcts.reform.divorce.validationservice.utils.impl.DateUtils;
+import uk.gov.hmcts.reform.divorce.validationservice.utils.DateUtils;
 
 import java.time.Instant;
 import java.time.temporal.ChronoUnit;

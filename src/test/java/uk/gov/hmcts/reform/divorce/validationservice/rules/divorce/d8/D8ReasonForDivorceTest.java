@@ -6,7 +6,7 @@ import org.junit.runner.RunWith;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import uk.gov.hmcts.reform.divorce.validationservice.domain.request.CoreCaseData;
-import uk.gov.hmcts.reform.divorce.validationservice.utils.impl.DateUtils;
+import uk.gov.hmcts.reform.divorce.validationservice.utils.DateUtils;
 
 import java.time.Instant;
 import java.time.temporal.ChronoUnit;

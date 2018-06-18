@@ -16,7 +16,6 @@ public class RulesConfig {
     @SuppressWarnings("unchecked")
     @Bean("D8RuleBook")
     public RuleBook<List<String>> d8RuleBook() {
-        System.out.println("Should setup new D8RuleBook");
         return new RuleBookRunner(D8_RULEBOOK);
     }
 
