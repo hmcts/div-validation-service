@@ -8,6 +8,7 @@ out
 *.iml
 *.iws
 
+
 .idea
 
 src/main/resources/version
