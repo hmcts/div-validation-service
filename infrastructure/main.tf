@@ -23,6 +23,7 @@ module "div-validation-service" {
   ilbIp = "${var.ilbIp}"
   is_frontend = false
   subscription = "${var.subscription}"
+  common_tags  = "${var.common_tags}"
 
   app_settings = {
     //    logging vars
