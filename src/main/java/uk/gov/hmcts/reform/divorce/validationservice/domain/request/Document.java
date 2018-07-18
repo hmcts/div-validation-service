@@ -7,7 +7,7 @@ import lombok.Data;
 public class Document {
 
     @JsonProperty("DocumentType")
-    private DocumentType documentType;
+    private String documentType;
 
     @JsonProperty("DocumentLink")
     private DocumentLink documentLink;
