@@ -1,7 +1,6 @@
 {
     "validationStatus": "failed",
     "errors": [
-        "screenHasMarriageBroken can not be null or empty. Actual data is: null",
         "marriageDate can not be null or empty. Actual data is: null",
         "marriagePetitionerName can not be null or empty. Actual data is: null",
         "marriageRespondentName can not be null or empty. Actual data is: null",
