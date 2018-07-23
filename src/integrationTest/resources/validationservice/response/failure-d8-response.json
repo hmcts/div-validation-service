@@ -19,7 +19,7 @@
         "D8DivorceCostsClaim can not be null or empty. Actual data is: null",
         "D8JurisdictionConnection can not be null or empty. Actual data is: null",
         "D8Connections can not be null or empty. Actual data is: null",
-        "D8StatementOfTruth can not be null or empty. Actual data is: null"
+        "D8StatementOfTruth must be 'YES'. Actual data is: null"
     ],
     "warnings": null
 }

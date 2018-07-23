@@ -18,7 +18,7 @@
         "claimsCosts can not be null or empty. Actual data is: null",
         "jurisdictionConnection can not be null or empty. Actual data is: null",
         "connections can not be null or empty. Actual data is: null",
-        "confirmPrayer can not be null or empty. Actual data is: null"
+        "confirmPrayer must be 'Yes'. Actual data is: null"
     ],
     "warnings": null
 }
