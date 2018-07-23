@@ -6,7 +6,6 @@
         "D8MarriageDate can not be null or empty. Actual data is: null",
         "D8MarriagePetitionerName can not be null or empty. Actual data is: null",
         "D8MarriageRespondentName can not be null or empty. Actual data is: null",
-        "D8PetitionerEmail can not be null or empty. Actual data is: null",
         "D8PetitionerFirstName can not be null or empty. Actual data is: null",
         "D8PetitionerLastName can not be null or empty. Actual data is: null",
         "D8PetitionerContactDetailsConfidential can not be null or empty. Actual data is: null",
