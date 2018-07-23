@@ -17,7 +17,7 @@ public class D8StatementOfTruth {
 
     private static final String BLANK_SPACE = " ";
     private static final String ACTUAL_DATA = "Actual data is: %s";
-    private static final String ERROR_MESSAGE = "D8StatementOfTruth can not be null or empty.";
+    private static final String ERROR_MESSAGE = "D8StatementOfTruth must be 'YES'.";
 
     @Result
     public List<String> result;
@@ -27,7 +27,8 @@ public class D8StatementOfTruth {
 
     @When
     public boolean when() {
-        return !Optional.ofNullable(coreCaseData.getD8StatementOfTruth()).isPresent();
+        return !Optional.ofNullable(coreCaseData.getD8StatementOfTruth()).isPresent()
+            || !coreCaseData.getD8StatementOfTruth().equalsIgnoreCase("YES");
     }
 
     @Then

@@ -1,0 +1,73 @@
+{
+    "data": {
+      "connections": {
+        "A": "The Petitioner and the Respondent are habitually resident in England and Wales"
+      },
+      "claimsCosts": "Yes",
+      "financialOrder": "Yes",
+      "jurisdictionConnection": [
+        "A"
+      ],
+      "legalProceedings": "Yes",
+      "marriageDate": "2001-02-02T00:00:00.000Z",
+      "marriagePetitionerName": "John Doe",
+      "marriageRespondentName": "Jenny Benny",
+      "petitionerContactDetailsConfidential": "share",
+      "petitionerCorrespondenceAddress":{
+          "addressType": "postcode",
+          "postcode": "SW9 9PE",
+          "address": [
+          "82 Landor Road",
+          "London",
+          "SW9 9PE"
+          ],
+          "addressConfirmed": "true",
+          "validPostcode": true,
+          "postcodeError": "false",
+          "url": "/petitioner-respondent/address",
+          "formattedAddress": {
+          "whereabouts": [
+              "82 Landor Road",
+              "London"
+          ],
+          "postcode": "SW9 9PE"
+          }
+      },
+      "petitionerEmail": "email@email.com",
+      "petitionerFirstName": "John",
+      "petitionerHomeAddress": {
+          "addressType": "postcode",
+          "postcode": "SW9 9PE",
+          "address": [
+          "82 Landor Road",
+          "London",
+          "SW9 9PE"
+          ],
+          "addressConfirmed": "true",
+          "validPostcode": true,
+          "postcodeError": "false",
+          "url": "/petitioner-respondent/address",
+          "formattedAddress": {
+          "whereabouts": [
+              "82 Landor Road",
+              "London"
+          ],
+          "postcode": "SW9 9PE"
+          }
+      },
+      "petitionerLastName": "Smith",
+      "reasonForDivorceAdulteryDetails": "My wife is having an affair this week.",
+      "reasonForDivorceBehaviourDetails": ["My wife is having an affair this week."],
+      "reasonForDivorceDesertionAgreed": "Yes",
+      "reasonForDivorceDesertionDate": "2010-02-02T00:00:00.000Z",
+      "reasonForDivorceDesertionDetails": "My wife is having an affair this week.",
+      "reasonForDivorceSeperationDate": "2010-02-02T00:00:00.000Z",
+      "reasonForDivorce": "unreasonable-behaviour",
+      "respondentFirstName": "Jane",
+      "respondentLastName": "Jamed",
+      "screenHasMarriageBroken": "Yes",
+      "confirmPrayer": "No"
+    },
+    "formId": "frontend-session",
+    "sectionId": "string"
+  }

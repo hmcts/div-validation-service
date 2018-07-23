@@ -33,6 +33,16 @@ public class ConfirmPrayerTest {
     }
 
     @Test
+    public void whenShouldReturnTrueWhenConfirmPrayerIsNotYes() {
+        divorceSession.setConfirmPrayer("No");
+
+        rule.setDivorceSession(divorceSession);
+        boolean result = rule.when();
+        
+        assertEquals(true, result);
+    }
+
+    @Test
     public void whenShouldReturnFalseWhenConfirmPrayerIsNotNull() {
         divorceSession.setConfirmPrayer("Yes");
 
@@ -49,6 +59,18 @@ public class ConfirmPrayerTest {
         rule.setResult(new ArrayList<>());
         rule.then();
 
-        assertEquals("confirmPrayer can not be null or empty. Actual data is: null", rule.getResult().get(0));
+        assertEquals("confirmPrayer must be 'Yes'. Actual data is: null", rule.getResult().get(0));
+    }
+
+    @Test
+    public void thenShouldReturnErrorMessageWithNo() {
+        divorceSession.setConfirmPrayer("No");
+
+        rule.setDivorceSession(divorceSession);
+
+        rule.setResult(new ArrayList<>());
+        rule.then();
+
+        assertEquals("confirmPrayer must be 'Yes'. Actual data is: No", rule.getResult().get(0));
     }
 }
