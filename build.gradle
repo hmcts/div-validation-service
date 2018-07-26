@@ -264,5 +264,5 @@ pitest {
     enableDefaultIncrementalAnalysis = true
     outputFormats = ['XML', 'HTML']
     timestampedReports = true
-    mutationThreshold = 50
+    mutationThreshold = 75
 }
