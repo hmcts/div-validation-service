@@ -1,7 +1,6 @@
 {
     "validationStatus": "failed",
     "errors": [
-        "screenHasMarriageBroken can not be null or empty. Actual data is: null",
         "marriageDate can not be null or empty. Actual data is: null",
         "marriagePetitionerName can not be null or empty. Actual data is: null",
         "marriageRespondentName can not be null or empty. Actual data is: null",
@@ -19,7 +18,7 @@
         "claimsCosts can not be null or empty. Actual data is: null",
         "jurisdictionConnection can not be null or empty. Actual data is: null",
         "connections can not be null or empty. Actual data is: null",
-        "confirmPrayer can not be null or empty. Actual data is: null"
+        "confirmPrayer must be 'Yes'. Actual data is: null"
     ],
     "warnings": null
 }

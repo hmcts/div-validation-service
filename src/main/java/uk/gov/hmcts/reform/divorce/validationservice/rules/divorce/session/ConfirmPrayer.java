@@ -17,7 +17,7 @@ public class ConfirmPrayer {
 
     private static final String BLANK_SPACE = " ";
     private static final String ACTUAL_DATA = "Actual data is: %s";
-    private static final String ERROR_MESSAGE = "confirmPrayer can not be null or empty.";
+    private static final String ERROR_MESSAGE = "confirmPrayer must be 'Yes'.";
 
     @Result
     public List<String> result;
@@ -27,7 +27,8 @@ public class ConfirmPrayer {
 
     @When
     public boolean when() {
-        return !Optional.ofNullable(divorceSession.getConfirmPrayer()).isPresent();
+        return !Optional.ofNullable(divorceSession.getConfirmPrayer()).isPresent()
+            || !divorceSession.getConfirmPrayer().equalsIgnoreCase("Yes");
     }
 
     @Then
