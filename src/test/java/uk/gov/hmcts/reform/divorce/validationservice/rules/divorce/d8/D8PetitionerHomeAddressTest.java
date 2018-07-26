@@ -5,6 +5,7 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
+import uk.gov.hmcts.reform.divorce.validationservice.domain.request.Address;
 import uk.gov.hmcts.reform.divorce.validationservice.domain.request.CoreCaseData;
 
 import java.util.ArrayList;
@@ -13,20 +14,19 @@ import static org.junit.Assert.assertEquals;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @SpringBootTest
-public class D8ReasonForDivorceDesertionAgreedTest {
+public class D8PetitionerHomeAddressTest {
 
-    private D8ReasonForDivorceDesertionAgreed rule;
+    private D8PetitionerHomeAddress rule;
     private CoreCaseData coreCaseData;
 
     @Before
     public void setup() {
-        rule = new D8ReasonForDivorceDesertionAgreed();
+        rule = new D8PetitionerHomeAddress();
         coreCaseData = new CoreCaseData();
     }
 
     @Test
-    public void whenShouldReturnTrueWhenFactIsDesertionAndD8ReasonForDivorceDesertionAgreedIsNull() {
-        coreCaseData.setD8ReasonForDivorce("desertion");
+    public void whenShouldReturnTrueWhenD8PetitionerHomeAddressIsNull() {
         rule.setCoreCaseData(coreCaseData);
         boolean result = rule.when();
         
@@ -34,16 +34,9 @@ public class D8ReasonForDivorceDesertionAgreedTest {
     }
 
     @Test
-    public void whenShouldReturnFalseWhenFactIsNotDesertionAndD8ReasonForDivorceDesertionAgreedIsNull() {
-        rule.setCoreCaseData(coreCaseData);
-        boolean result = rule.when();
-        
-        assertEquals(false, result);
-    }
-
-    @Test
-    public void whenShouldReturnFalseWhenD8ReasonForDivorceDesertionAgreedIsNotNull() {
-        coreCaseData.setD8ReasonForDivorceDesertionAgreed("Yes");
+    public void whenShouldReturnFalseWhenD8PetitionerHomeAddressIsNotNull() {
+        Address address = new Address();
+        coreCaseData.setD8PetitionerHomeAddress(address);
 
         rule.setCoreCaseData(coreCaseData);
         boolean result = rule.when();
@@ -58,7 +51,7 @@ public class D8ReasonForDivorceDesertionAgreedTest {
         rule.setResult(new ArrayList<>());
         rule.then();
 
-        assertEquals("D8ReasonForDivorceDesertionAgreed can not be null or empty. Actual data is: null",
+        assertEquals("D8PetitionerHomeAddress can not be null or empty. Actual data is: null",
             rule.getResult().get(0));
     }
 }

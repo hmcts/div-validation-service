@@ -11,14 +11,13 @@ import uk.gov.hmcts.reform.divorce.validationservice.domain.request.CoreCaseData
 import java.util.List;
 import java.util.Optional;
 
-@Rule(order = 19)
+@Rule(order = 11)
 @Data
-public class D8ReasonForDivorceDesertionAgreed {
+public class D8PetitionerHomeAddress {
 
     private static final String BLANK_SPACE = " ";
-    private static final String REASON_DESERTION = "desertion";
     private static final String ACTUAL_DATA = "Actual data is: %s";
-    private static final String ERROR_MESSAGE = "D8ReasonForDivorceDesertionAgreed can not be null or empty.";
+    private static final String ERROR_MESSAGE = "D8PetitionerHomeAddress can not be null or empty.";
 
     @Result
     public List<String> result;
@@ -28,8 +27,7 @@ public class D8ReasonForDivorceDesertionAgreed {
 
     @When
     public boolean when() {
-        return Optional.ofNullable(coreCaseData.getD8ReasonForDivorce()).orElse("").equalsIgnoreCase(REASON_DESERTION)
-            && !Optional.ofNullable(coreCaseData.getD8ReasonForDivorceDesertionAgreed()).isPresent();
+        return !Optional.ofNullable(coreCaseData.getD8PetitionerHomeAddress()).isPresent();
     }
 
     @Then
@@ -37,7 +35,7 @@ public class D8ReasonForDivorceDesertionAgreed {
         result.add(String.join(
             BLANK_SPACE, // delimiter
             ERROR_MESSAGE,
-            String.format(ACTUAL_DATA, coreCaseData.getD8ReasonForDivorceDesertionAgreed())
+            String.format(ACTUAL_DATA, coreCaseData.getD8PetitionerHomeAddress())
         ));
     }
 }
