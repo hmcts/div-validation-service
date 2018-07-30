@@ -1,0 +1,7 @@
+{
+    "validationStatus": "failed",
+    "errors": [
+        "D8StatementOfTruth must be 'YES'. Actual data is: NO"
+    ],
+    "warnings": null
+}

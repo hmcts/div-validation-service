@@ -33,6 +33,16 @@ public class D8StatementOfTruthTest {
     }
 
     @Test
+    public void whenShouldReturnTrueWhenD8StatementOfTruthIsNotYes() {
+        coreCaseData.setD8StatementOfTruth("No");
+
+        rule.setCoreCaseData(coreCaseData);
+        boolean result = rule.when();
+
+        assertEquals(true, result);
+    }
+
+    @Test
     public void whenShouldReturnFalseWhenD8StatementOfTruthIsNotNull() {
         coreCaseData.setD8StatementOfTruth("Yes");
 
@@ -49,6 +59,18 @@ public class D8StatementOfTruthTest {
         rule.setResult(new ArrayList<>());
         rule.then();
 
-        assertEquals("D8StatementOfTruth can not be null or empty. Actual data is: null", rule.getResult().get(0));
+        assertEquals("D8StatementOfTruth must be 'YES'. Actual data is: null", rule.getResult().get(0));
+    }
+
+    @Test
+    public void thenShouldReturnErrorMessageWithNo() {
+        coreCaseData.setD8StatementOfTruth("No");
+        
+        rule.setCoreCaseData(coreCaseData);
+
+        rule.setResult(new ArrayList<>());
+        rule.then();
+
+        assertEquals("D8StatementOfTruth must be 'YES'. Actual data is: No", rule.getResult().get(0));
     }
 }
