@@ -1,13 +1,3 @@
-provider "vault" {
-  //  # It is strongly recommended to configure this provider through the
-  //  # environment variables described above, so that each user can have
-  //  # separate credentials set in the environment.
-  //  #
-  //  # This will default to using $VAULT_ADDR
-  //  # But can be set explicitly
-  address = "https://vault.reform.hmcts.net:6200"
-}
-
 locals {
   aseName = "${data.terraform_remote_state.core_apps_compute.ase_name[0]}"
   ccdApiUrl = "http://ccd-data-store-api-${var.env}.service.${local.aseName}.internal"
@@ -16,7 +6,7 @@ locals {
 
 
 module "div-validation-service" {
-  source = "git@github.com:contino/moj-module-webapp.git"
+  source = "git@github.com:hmcts/moj-module-webapp.git"
   product = "${var.product}-${var.microservice}"
   location = "${var.location}"
   env = "${var.env}"
