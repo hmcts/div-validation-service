@@ -22,6 +22,7 @@ def channel = '#div-dev'
 withPipeline(type , product, component) {
     
     enableDockerBuild()
+    enableDeployToAKS()
 
     before('functionalTest:aat') {
         env.ITEST_ENVIRONMENT = "aat"
