@@ -50,7 +50,7 @@ spec:
 ---
 apiVersion: v1
 kind: Service
-metadata:
+metadata:x
   name: ${SERVICE_NAME}
   namespace: ${NAMESPACE}
   annotations:
