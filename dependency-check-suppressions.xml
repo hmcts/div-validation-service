@@ -12,5 +12,7 @@
         <gav regex="true">.*</gav>
         <cve>CVE-2015-2156</cve>
         <cve>CVE-2014-3488</cve>
+        <cve>CVE-2018-11039</cve>
+        <cve>CVE-2018-11040</cve>        
     </suppress>
 </suppressions>
