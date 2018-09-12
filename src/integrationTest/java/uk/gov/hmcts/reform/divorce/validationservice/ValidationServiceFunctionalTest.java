@@ -34,28 +34,32 @@ public class ValidationServiceFunctionalTest {
     public void givenNoFormId_whenValidateEndpointIsCalled_thenReturnSuccess() throws Exception {
         Response response = postToValidateEndpoint("request/valid-unused-form-id-request.json");
         Assert.assertEquals(HttpStatus.OK.value(), response.statusCode());
-        Assert.assertEquals(getJsonFileAsString("response/success-response.json"), response.prettyPrint());
+        Assert.assertEquals(getJsonFileAsString("response/success-response.json"),
+            response.prettyPrint().trim());
     }
 
     @Test
     public void givenValidCaseFormData_whenValidateEndpointIsCalled_thenReturnSuccess() throws Exception {
         Response response = postToValidateEndpoint("request/valid-d8-request.json");
         Assert.assertEquals(HttpStatus.OK.value(), response.statusCode());
-        Assert.assertEquals(getJsonFileAsString("response/success-response.json"), response.prettyPrint());
+        Assert.assertEquals(getJsonFileAsString("response/success-response.json"),
+            response.prettyPrint().trim());
     }
 
     @Test
     public void givenValidSessionFormData_whenValidateEndpointIsCalled_thenReturnSuccess() throws Exception {
         Response response = postToValidateEndpoint("request/valid-divorce-session-request.json");
         Assert.assertEquals(HttpStatus.OK.value(), response.statusCode());
-        Assert.assertEquals(getJsonFileAsString("response/success-response.json"), response.prettyPrint());
+        Assert.assertEquals(getJsonFileAsString("response/success-response.json"),
+            response.prettyPrint().trim());
     }
 
     @Test
     public void givenInvalidCaseFormData_whenValidateEndpointIsCalled_thenReturnFailure() throws Exception {
         Response response = postToValidateEndpoint("request/invalid-d8-request.json");
         Assert.assertEquals(HttpStatus.OK.value(), response.statusCode());
-        Assert.assertEquals(getJsonFileAsString("response/failure-d8-response.json"), response.prettyPrint());
+        Assert.assertEquals(getJsonFileAsString("response/failure-d8-response.json"),
+            response.prettyPrint().trim());
     }
 
     @Test
@@ -63,7 +67,7 @@ public class ValidationServiceFunctionalTest {
         Response response = postToValidateEndpoint("request/invalid-divorce-session-request.json");
         Assert.assertEquals(HttpStatus.OK.value(), response.statusCode());
         Assert.assertEquals(getJsonFileAsString("response/failure-divorce-session-response.json"),
-            response.prettyPrint());
+            response.prettyPrint().trim());
     }
 
     @Test
@@ -71,7 +75,7 @@ public class ValidationServiceFunctionalTest {
         Response response = postToValidateEndpoint("request/invalid-d8-marriage-date-request.json");
         Assert.assertEquals(HttpStatus.OK.value(), response.statusCode());
         Assert.assertEquals(getJsonFileAsString("response/failure-d8-marriage-date-response.json"),
-            response.prettyPrint());
+            response.prettyPrint().trim());
     }
 
     @Test
@@ -79,7 +83,7 @@ public class ValidationServiceFunctionalTest {
         Response response = postToValidateEndpoint("request/invalid-divorce-session-marriage-date-request.json");
         Assert.assertEquals(HttpStatus.OK.value(), response.statusCode());
         Assert.assertEquals(getJsonFileAsString("response/failure-divorce-session-marriage-date-response.json"),
-            response.prettyPrint());
+            response.prettyPrint().trim());
     }
 
     private Response postToValidateEndpoint(String filePath) throws Exception {
@@ -94,6 +98,6 @@ public class ValidationServiceFunctionalTest {
     private String getJsonFileAsString(String filePath) throws IOException {
         return new String(Files.readAllBytes(
             Paths.get("src", "integrationTest", "resources", "validationservice", filePath)
-        ));
+        )).trim();
     }
 }
