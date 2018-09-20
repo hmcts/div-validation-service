@@ -4,7 +4,7 @@ locals {
   sendLetterUrl = "http://send-letter-producer-${var.env}.service.${local.aseName}.internal"
   
   asp_name = "${var.env == "prod" ? "div-vs-prod" : "${var.product}-${var.env}"}"
-  asp_rg = "${var.env == "prod" ? "div-vs-prod" : "${var.product}-shared-infrastructure-${var.env}"}"
+  asp_rg = "${var.env == "prod" ? "div-vs-prod" : "${var.product}-${var.env}"}"
 }
 
 
