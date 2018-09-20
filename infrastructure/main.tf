@@ -2,6 +2,9 @@ locals {
   aseName = "${data.terraform_remote_state.core_apps_compute.ase_name[0]}"
   ccdApiUrl = "http://ccd-data-store-api-${var.env}.service.${local.aseName}.internal"
   sendLetterUrl = "http://send-letter-producer-${var.env}.service.${local.aseName}.internal"
+  
+  asp_name = "${var.env == "prod" ? "div-vs-prod" : "${var.product}-${var.env}"}"
+  asp_rg = "${var.env == "prod" ? "div-vs-prod" : "${var.product}-shared-infrastructure-${var.env}"}"
 }
 
 
@@ -14,6 +17,8 @@ module "div-validation-service" {
   is_frontend = false
   subscription = "${var.subscription}"
   common_tags  = "${var.common_tags}"
+  asp_name                        = "${local.asp_name}"
+  asp_rg                          = "${local.asp_rg}"
 
   app_settings = {
     //    logging vars
