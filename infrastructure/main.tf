@@ -9,14 +9,14 @@ locals {
 
 
 module "div-validation-service" {
-  source = "git@github.com:hmcts/moj-module-webapp.git"
-  product = "${var.product}-${var.microservice}"
-  location = "${var.location}"
-  env = "${var.env}"
-  ilbIp = "${var.ilbIp}"
-  is_frontend = false
-  subscription = "${var.subscription}"
-  common_tags  = "${var.common_tags}"
+  source                          = "git@github.com:hmcts/moj-module-webapp.git"
+  product                         = "${var.product}-${var.microservice}"
+  location                        = "${var.location}"
+  env                             = "${var.env}"
+  ilbIp                           = "${var.ilbIp}"
+  is_frontend                     = false
+  subscription                    = "${var.subscription}"
+  common_tags                     = "${var.common_tags}"
   asp_name                        = "${local.asp_name}"
   asp_rg                          = "${local.asp_rg}"
 
