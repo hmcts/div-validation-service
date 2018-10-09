@@ -1,6 +1,6 @@
 buildscript {
     ext {
-        springBootVersion = '2.0.4.RELEASE'
+        springBootVersion = '2.0.5.RELEASE'
     }
     repositories {
         mavenLocal()
@@ -14,9 +14,9 @@ buildscript {
 plugins {
     id 'application'
     id 'checkstyle'
-    id 'org.springframework.boot' version '2.0.4.RELEASE'
-    id 'io.spring.dependency-management' version '1.0.5.RELEASE'
-    id 'org.owasp.dependencycheck' version '3.1.2'
+    id 'org.springframework.boot' version '2.0.5.RELEASE'
+    id 'io.spring.dependency-management' version '1.0.6.RELEASE'
+    id 'org.owasp.dependencycheck' version '3.2.1'
     id 'org.sonarqube' version '2.5'
     id 'com.github.ben-manes.versions' version '0.17.0'
     id 'jacoco'
@@ -118,13 +118,11 @@ def versions = [
         hibernate: '6.0.5.Final',
         jacksonCore: '2.9.5',
         javaxValidation: '2.0.0.Final',
-        jaywayJsonPath: '2.2.0',
         puppyCrawl: '7.6',
         reformsJavaLogging: '3.0.1',
         reformsHttpProxySpringBootAutoconfigure: '2.0.0',
         serviceTokenGenerator: '1.0.0',
-        springBoot: '2.0.4.RELEASE',
-        springRetry: '1.2.2.RELEASE',
+        springBoot: '2.0.5.RELEASE',
         springfoxSwagger: '2.9.0',
         springPluginCore: '1.2.0.RELEASE',
         wiremockVersion: '2.8.0'
@@ -149,10 +147,8 @@ dependencies {
     integrationTestCompile group: 'org.springframework.boot', name: 'spring-boot-starter-test'
 
     compile group: 'com.fasterxml.jackson.core', name: 'jackson-databind', version: versions.jacksonCore
-    compile group: 'com.deliveredtechnologies', name:'rulebook-core', version:'0.9.1'
+    compile group: 'com.deliveredtechnologies', name:'rulebook-core', version:'0.10.0'
     compile group: 'com.google.code.findbugs', name: 'jsr305', version: '3.0.2'
-    compile group: 'com.jayway.jsonpath', name: 'json-path-assert', version: versions.jaywayJsonPath
-    compile group: 'com.nimbusds', name: 'nimbus-jose-jwt', version: '5.1'
     compile group: 'commons-io', name: 'commons-io', version: versions.commonsIo
     compile group: 'io.springfox', name: 'springfox-swagger2', version: versions.springfoxSwagger
     compile group: 'io.springfox', name: 'springfox-swagger-ui', version: versions.springfoxSwagger
@@ -167,7 +163,7 @@ dependencies {
     compile group: 'uk.gov.hmcts.reform', name: 'java-logging-appinsights', version: versions.reformsJavaLogging
     compile group: 'uk.gov.hmcts.reform', name: 'java-logging-httpcomponents', version: versions.reformsJavaLogging
     compile group: 'uk.gov.hmcts.reform', name: 'java-logging-spring', version: versions.reformsJavaLogging
-    compile (group: 'uk.gov.hmcts.reform', name:'service-auth-provider-client', version: versions.serviceTokenGenerator){
+    compile (group: 'uk.gov.hmcts.reform', name:'service-auth-provider-client', version: versions.serviceTokenGenerator) {
         exclude group: 'io.reactivex', module: 'rxnetty'
         exclude group: 'io.reactivex', module: 'rxnetty-servo'
         exclude group: 'io.reactivex', module: 'io.reactivex'
