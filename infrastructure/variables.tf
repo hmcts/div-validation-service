@@ -2,6 +2,10 @@ variable "product" {
   default = "div"
 }
 
+variable "raw_product" {
+  default = "div"
+}
+
 variable "microservice" {
   default = "vs"
 }
