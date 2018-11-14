@@ -9,7 +9,6 @@
         "D8PetitionerFirstName can not be null or empty. Actual data is: null",
         "D8PetitionerLastName can not be null or empty. Actual data is: null",
         "D8PetitionerContactDetailsConfidential can not be null or empty. Actual data is: null",
-        "D8PetitionerHomeAddress can not be null or empty. Actual data is: null",
         "D8RespondentFirstName can not be null or empty. Actual data is: null",
         "D8RespondentLastName can not be null or empty. Actual data is: null",
         "D8LegalProceedings can not be null or empty. Actual data is: null",
@@ -17,7 +16,6 @@
         "D8FinancialOrder can not be null or empty. Actual data is: null",
         "D8DivorceCostsClaim can not be null or empty. Actual data is: null",
         "D8JurisdictionConnection can not be null or empty. Actual data is: null",
-        "D8Connections can not be null or empty. Actual data is: null",
         "D8StatementOfTruth must be 'YES'. Actual data is: null"
     ],
     "warnings": null
