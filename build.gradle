@@ -21,6 +21,7 @@ plugins {
     id 'com.github.ben-manes.versions' version '0.17.0'
     id 'jacoco'
     id 'pmd'
+    id 'info.solidsoft.pitest' version '1.3.0'
 }
 
 group = 'uk.gov.hmcts.reform.divorce'
@@ -125,7 +126,10 @@ def versions = [
         springBoot: '2.0.5.RELEASE',
         springfoxSwagger: '2.9.0',
         springPluginCore: '1.2.0.RELEASE',
-        wiremockVersion: '2.8.0'
+        wiremockVersion: '2.8.0',
+        pitest: '1.3.2',
+        gradlePitest: '1.3.0',
+        sonarPitest: '0.5'
 ]
 
 dependencies {
@@ -155,7 +159,7 @@ dependencies {
     compile group: 'org.projectlombok', name: 'lombok', version: '1.16.16'
     compile group: 'org.springframework.boot', name: 'spring-boot-starter-web', version: versions.springBoot
     compile group: 'org.springframework.boot', name: 'spring-boot-starter-actuator', version: versions.springBoot
-    
+
     compile group: 'uk.gov.hmcts.reform', name: 'http-proxy-spring-boot-autoconfigure', version: versions.reformsHttpProxySpringBootAutoconfigure
     compile group: 'uk.gov.hmcts.reform', name: 'java-logging-appinsights', version: versions.reformsJavaLogging
     compile group: 'uk.gov.hmcts.reform', name: 'java-logging-httpcomponents', version: versions.reformsJavaLogging
@@ -165,6 +169,9 @@ dependencies {
     testCompile(group: 'org.springframework.boot', name: 'spring-boot-starter-test', version: versions.springBoot) {
         exclude(module: 'commons-logging')
     }
+    compile group: 'org.pitest', name: 'pitest', version: versions.pitest
+    compile group:'info.solidsoft.gradle.pitest', name: 'gradle-pitest-plugin', version: versions.gradlePitest
+    compile group:'org.codehaus.sonar-plugins', name:'sonar-pitest-plugin', version: versions.sonarPitest
 }
 
 pmd {
@@ -189,7 +196,19 @@ task smoke(type:Test) {
 task functional(type: Test, description: 'Runs the functional tests', group: 'Verification') {
     setTestClassesDirs(sourceSets.integrationTest.output.classesDirs)
     setClasspath(sourceSets.integrationTest.runtimeClasspath)
-    
+
+}
+
+pitest {
+    targetClasses = ['uk.gov.hmcts.reform.divorce.validationservice.*']
+    excludedClasses = ['uk.gov.hmcts.reform.divorce.validationservice.config.*',
+                       'uk.gov.hmcts.reform.divorce.validationservice.domain.*',
+                       'uk.gov.hmcts.reform.divorce.validationservice.exception.*',
+                       'uk.gov.hmcts.reform.divorce.validationservice.rules.*']
+    threads = 10
+    outputFormats = ['XML', 'HTML']
+    timestampedReports = false
+    mutationThreshold = 80
 }
 
 def sonarExclusions = [
@@ -207,6 +226,8 @@ sonarqube {
         property "sonar.jacoco.reportPath", "${project.buildDir}/jacoco/test.exec"
         property "sonar.jacoco.itReportPath", "${project.buildDir}/jacoco/apiTest.exec"
         property "sonar.exclusions", sonarExclusions.join(", ")
+        property "sonar.pitest.mode", "reuseReport"
+        property "sonar.pitest.reportsDirectory", "build/reports/pitest"
     }
 }
 
