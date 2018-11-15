@@ -31,6 +31,13 @@ First you need to create distribution by executing following command:
 ```bash
     ./gradlew installDist
 ```
+### Mutation tests
+
+To run all mutation tests execute the following command:
+
+```bash
+    ./gradlew pitest
+```
 
 When the distribution has been created in `build/install/div-document-generator` directory,
 you can run the application by executing following command:

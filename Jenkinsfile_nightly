@@ -1,0 +1,16 @@
+#!groovy
+
+properties([
+        [$class: 'GithubProjectProperty', projectUrlStr: 'https://github.com/hmcts/div-validation-service'],
+        pipelineTriggers([[$class: 'GitHubPushTrigger']])
+])
+
+@Library("Infrastructure")
+
+def type = "java"
+def product = "div"
+def component = "vs"
+
+withNightlyPipeline(type, product, component) {
+    enableMutationTest()
+}
