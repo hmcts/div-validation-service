@@ -3,8 +3,8 @@ locals {
   ccdApiUrl = "http://ccd-data-store-api-${var.env}.service.${local.aseName}.internal"
   sendLetterUrl = "http://send-letter-producer-${var.env}.service.${local.aseName}.internal"
   
-  asp_name = "${var.env == "prod" ? "div-vs-prod" : "${var.raw_product}-1-${var.env}"}"
-  asp_rg = "${var.env == "prod" ? "div-vs-prod" : "${var.raw_product}-1-${var.env}"}"
+  asp_name = "${var.env == "prod" ? "div-vs-prod" : "${var.raw_product}-${var.env}"}"
+  asp_rg = "${var.env == "prod" ? "div-vs-prod" : "${var.raw_product}-${var.env}"}"
 }
 
 
@@ -19,6 +19,7 @@ module "div-validation-service" {
   common_tags                     = "${var.common_tags}"
   asp_name                        = "${local.asp_name}"
   asp_rg                          = "${local.asp_rg}"
+  instance_size                   = "I3"
 
   app_settings = {
     //    logging vars
