@@ -3,7 +3,9 @@ package uk.gov.hmcts.reform.divorce.validationservice;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
-@SpringBootApplication
+@SpringBootApplication(scanBasePackages = {"uk.gov.hmcts.reform.divorce",
+        "uk.gov.hmcts.reform.logging.appinsights"}
+      )
 public class ValidationServiceApplication {
 
     public static void main(String[] args) {
