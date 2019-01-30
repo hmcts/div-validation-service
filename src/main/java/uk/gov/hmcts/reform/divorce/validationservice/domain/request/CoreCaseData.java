@@ -73,8 +73,8 @@ public class CoreCaseData {
     @JsonProperty("D8PetitionerLastName")
     private String d8PetitionerLastName;
 
-    @JsonProperty("D8DerivedPetitionerCurrentFullName")
-    private String d8DerivedPetitionerCurrentFullName;
+    @JsonProperty("PetitionerFullName")
+    private String petitionerFullName;
 
     @JsonProperty("D8PetitionerNameChangedHow")
     private List<String> d8PetitionerNameChangedHow;
@@ -109,11 +109,11 @@ public class CoreCaseData {
     @JsonProperty("D8RespondentLastName")
     private String d8RespondentLastName;
 
-    @JsonProperty("D8DerivedRespondentCurrentName")
-    private String d8DerivedRespondentCurrentName;
+    @JsonProperty("RespondentFullName")
+    private String respondentFullName;
 
-    @JsonProperty("D8DerivedRespondentSolicitorDetails")
-    private String d8DerivedRespondentSolicitorDetails;
+    @JsonProperty("D8RespondentSolicitorDetails")
+    private String d8RespondentSolicitorDetails;
 
     @JsonProperty("D8RespondentHomeAddress")
     private Address d8RespondentHomeAddress;
@@ -370,8 +370,8 @@ public class CoreCaseData {
     @JsonProperty("D8ReasonForDivorceSeperationYear")
     private String d8ReasonForDivorceSeperationYear;
 
-    @JsonProperty("D8DerivedReasonForDivorceAdultery3dPtyNm")
-    private String d8DerivedReasonForDivorceAdultery3dPtyNm;
+    @JsonProperty("CoRespondentFullName")
+    private String coRespondentFullName;
 
     @JsonProperty("D8DerivedRespondentSolicitorAddr")
     private String d8DerivedRespondentSolicitorAddr;
@@ -405,9 +405,6 @@ public class CoreCaseData {
 
     @JsonProperty("D8ReasonForDivorceDesertion")
     private String d8ReasonForDivorceDesertion;
-
-    @JsonProperty("D8DerivedReasonForDivorceAdultery3rdAddr")
-    private String d8DerivedReasonForDivorceAdultery3rdAddr;
 
     @JsonProperty("D8Cohort")
     private String d8Cohort;
