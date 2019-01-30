@@ -88,7 +88,7 @@ repositories {
 }
 
 checkstyle {
-    toolVersion = '7.2'
+    toolVersion = '8.17'
     configFile = project(':').file('checkstyle.xml')
     configProperties = ["suppressionFile": project(':').file('suppressions.xml')]
 }
@@ -119,7 +119,7 @@ def versions = [
         hibernate: '6.0.5.Final',
         jacksonCore: '2.9.8',
         javaxValidation: '2.0.0.Final',
-        puppyCrawl: '7.6',
+        puppyCrawl: '8.17',
         reformsJavaLogging: '4.0.1',
         reformsHttpProxySpringBootAutoconfigure: '2.0.0',
         serviceTokenGenerator: '2.0.0',
@@ -129,7 +129,8 @@ def versions = [
         wiremockVersion: '2.19.0',
         pitest: '1.3.2',
         gradlePitest: '1.3.0',
-        sonarPitest: '0.5'
+        sonarPitest: '0.5',
+        guava: '27.0.1-jre'
 ]
 
 dependencies {
@@ -150,6 +151,11 @@ dependencies {
     compile (group: 'com.fasterxml.jackson.core', name: 'jackson-databind', version: versions.jacksonCore){
         force = true
     }
+
+    compile (group: 'com.google.guava', name:'guava', version: versions.guava) {
+        force = true
+    }
+
     compile group: 'com.deliveredtechnologies', name:'rulebook-core', version:'0.9.1'
     compile group: 'com.google.code.findbugs', name: 'jsr305', version: '3.0.2'
     compile group: 'commons-io', name: 'commons-io', version: versions.commonsIo
