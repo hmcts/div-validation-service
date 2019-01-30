@@ -88,7 +88,7 @@ repositories {
 }
 
 checkstyle {
-    toolVersion = '8.17'
+    toolVersion = '7.2'
     configFile = project(':').file('checkstyle.xml')
     configProperties = ["suppressionFile": project(':').file('suppressions.xml')]
 }
@@ -119,7 +119,7 @@ def versions = [
         hibernate: '6.0.5.Final',
         jacksonCore: '2.9.8',
         javaxValidation: '2.0.0.Final',
-        puppyCrawl: '8.17',
+        puppyCrawl: '7.6',
         reformsJavaLogging: '4.0.1',
         reformsHttpProxySpringBootAutoconfigure: '2.0.0',
         serviceTokenGenerator: '2.0.0',
