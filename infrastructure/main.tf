@@ -1,5 +1,9 @@
+provider "azurerm" {
+  version = "1.22.1"
+}
+
 locals {
-  aseName = "${data.terraform_remote_state.core_apps_compute.ase_name[0]}"
+  aseName = "core-compute-${var.env}"
   ccdApiUrl = "http://ccd-data-store-api-${var.env}.service.${local.aseName}.internal"
   sendLetterUrl = "http://send-letter-producer-${var.env}.service.${local.aseName}.internal"
   
