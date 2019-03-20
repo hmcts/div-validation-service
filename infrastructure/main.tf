@@ -1,8 +1,5 @@
 locals {
-  aseName = "${data.terraform_remote_state.core_apps_compute.ase_name[0]}"
-  ccdApiUrl = "http://ccd-data-store-api-${var.env}.service.${local.aseName}.internal"
-  sendLetterUrl = "http://send-letter-producer-${var.env}.service.${local.aseName}.internal"
-  
+  aseName = "core-compute-${var.env}"
   asp_name = "${var.env == "prod" ? "div-vs-prod" : "${var.raw_product}-${var.env}"}"
   asp_rg = "${var.env == "prod" ? "div-vs-prod" : "${var.raw_product}-${var.env}"}"
 }
