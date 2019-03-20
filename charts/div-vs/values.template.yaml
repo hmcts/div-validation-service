@@ -6,3 +6,4 @@ java:
     environment:
         REFORM_SERVICE_NAME: "vs"
         REFORM_TEAM: "div"
+        SLOT: "PRODUCTION"
