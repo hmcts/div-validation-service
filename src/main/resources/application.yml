@@ -50,9 +50,10 @@ management:
       enabled: true
   endpoint:
     health:
+      show-details: "ALWAYS"
       enabled: true
       cache:
-        time-to-live: 1000
+        time-to-live: 5000
     metrics:
       enabled: true
   endpoints:
