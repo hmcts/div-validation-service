@@ -3,7 +3,3 @@ java:
     environment:
         REFORM_SERVICE_NAME: "vs"
         REFORM_TEAM: "div"
-        
-    # Don't modify below here
-    image: ${IMAGE_NAME}
-    ingressHost: ${SERVICE_FQDN}
