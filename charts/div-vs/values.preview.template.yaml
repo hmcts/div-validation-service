@@ -1,0 +1,8 @@
+java:
+    environment:
+        REFORM_ENVIRONMENT: "aat"
+        APPINSIGHTS_INSTRUMENTATIONKEY: "dummykey"
+
+    # Don't modify below here
+    image: ${IMAGE_NAME}
+    ingressHost: ${SERVICE_FQDN}

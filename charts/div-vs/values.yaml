@@ -1,0 +1,5 @@
+java:
+    applicationPort: 4008
+    environment:
+        REFORM_SERVICE_NAME: "vs"
+        REFORM_TEAM: "div"
