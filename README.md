@@ -1,19 +1,18 @@
-# Divorce Validation Service
+# Divorce Validation Service [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 [![Build Status](https://travis-ci.org/hmcts/spring-boot-template.svg?branch=master)](https://travis-ci.org/hmcts/spring-boot-template)
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/5afacddc65a84464b4f84bd0b72f118b)](https://www.codacy.com/app/HMCTS/div-validation-service)
 
-## Purpose
 This application validates the case data based on the validation rules supplied.
 
-## Getting started
+## Setup
 
-### Prerequisites
+**Prerequisites**
 
 - [JDK 8](https://www.oracle.com/java)
 - [Docker](https://www.docker.com)
 
-### Building
+**Building**
 
 The project uses [Gradle](https://gradle.org) as a build tool but you don't have to install it locally since there is a
 `./gradlew` wrapper script.
@@ -24,14 +23,31 @@ To build project please execute the following command:
     ./gradlew build
 ```
 
-### Running
+**Running**
 
 First you need to create distribution by executing following command:
 
 ```bash
     ./gradlew installDist
 ```
-### Mutation tests
+
+
+When the distribution has been created in `build/install/div-validaton-serivce` directory,
+you can run the application by executing following command:
+
+```bash
+    ./gradlew bootRun
+```
+
+As a result the following container(s) will get created and started:
+ - long living container for API application exposing port `4008`
+
+(`./gradlew bootRun` will stop at 75% but this is expected and you should still be able to access it)
+
+
+## Testing
+
+**Mutation tests**
 
 To run all mutation tests execute the following command:
 
@@ -39,24 +55,8 @@ To run all mutation tests execute the following command:
     ./gradlew pitest
 ```
 
-When the distribution has been created in `build/install/div-document-generator` directory,
-you can run the application by executing following command:
 
-```bash
-    docker-compose up
-```
-
-As a result the following container(s) will get created and started:
- - long living container for API application exposing port `4008`
-
-### API documentation
-
-API documentation is provided with Swagger:
- - `http://localhost:4008/swagger-ui.html` - UI to interact with the API resources
-
-## Developing
-
-### Unit tests
+**Unit tests**
 
 To run all unit tests please execute following command:
 
@@ -64,20 +64,26 @@ To run all unit tests please execute following command:
     ./gradlew test
 ```
 
-### Coding style tests
+**Coding style tests**
 
 To run all checks (including unit tests) please execute following command:
 
 ```bash
     ./gradlew check
 ```
+## Developing
 
-## Versioning
+**API documentation**
+
+API documentation is provided with Swagger:
+ - `http://localhost:4008/swagger-ui.html` - UI to interact with the API resources
+
+**Versioning**
 
 We use [SemVer](http://semver.org/) for versioning.
 For the versions available, see the tags on this repository.
 
-## Standard API
+**Standard API**
 
 We follow [RESTful API standards](https://hmcts.github.io/restful-api-standards/).
 
