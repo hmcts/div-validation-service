@@ -120,7 +120,7 @@ def versions = [
         commonsIo: '2.5',
         commonsLang3: '3.0',
         hibernate: '6.0.5.Final',
-        jacksonCore: '2.9.9.1',
+        jacksonDatabind: '2.9.9.1',
         javaxValidation: '2.0.0.Final',
         puppyCrawl: '8.21',
         reformHealth: '0.0.3',
@@ -156,7 +156,7 @@ dependencies {
     integrationTestCompile group: 'org.apache.commons', name: 'commons-lang3', version: '3.0'
     integrationTestImplementation group: 'org.projectlombok', name: 'lombok', version: versions.lombok
 
-    compile (group: 'com.fasterxml.jackson.core', name: 'jackson-databind', version: versions.jacksonCore){
+    compile (group: 'com.fasterxml.jackson.core', name: 'jackson-databind', version: versions.jacksonDatabind){
         force = true
     }
 
