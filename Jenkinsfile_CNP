@@ -17,10 +17,8 @@ def type = "java"
 def product = "div"
 def component = "vs"
 
-def channel = '#div-dev'
-
 withPipeline(type , product, component) {
-    
+
     if (env.CHANGE_TITLE && !env.CHANGE_TITLE.startsWith('[PREVIEW]')) {
         enableDockerBuild()
         installCharts()
@@ -40,9 +38,5 @@ withPipeline(type , product, component) {
 
     after('functionalTest:aat') {
         steps.archiveArtifacts allowEmptyArchive: true, artifacts: '**/site/serenity/**/*'
-    }
-
-    onMaster {
-        enableSlackNotifications(channel)
     }
 }
