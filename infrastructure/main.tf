@@ -6,7 +6,7 @@ locals {
 
 
 module "div-validation-service" {
-  source                          = "git@github.com:hmcts/moj-module-webapp.git"
+  source                          = "git@github.com:hmcts/cnp-module-webapp.git"
   product                         = "${var.product}-${var.microservice}"
   location                        = "${var.location}"
   env                             = "${var.env}"
